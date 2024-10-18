@@ -68,7 +68,7 @@ function Navbar() {
           <a href='/contact' className='btn'>
             CONTACT US
           </a>
-          <a href='/book' className='btn'>
+          <a href='/book' className='btn'></a>
             BOOK NOW
           </NavLink>
         </div>
