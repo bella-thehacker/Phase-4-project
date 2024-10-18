@@ -1,6 +1,8 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 import { useState } from 'react'
 import '../css/Navbar.css'
+
 
 function Navbar() {
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked')
@@ -23,9 +25,9 @@ function Navbar() {
       <nav>
         <div className='navigation_bar'>
           <div className='logo'>
-            <a href='/'>
+            <NavLink to='/'>
               <img src='/vistaa2.png' alt='' />
-            </a>
+            </NavLink>
           </div>
           <div className='line'></div>
           <div className='burger_menu' onClick={changeMenu}>
@@ -35,15 +37,15 @@ function Navbar() {
           </div>
         </div>
         <div className='navbar_buttons'>
-          <a href='/stay'>STAY</a>
-          <a href='/dinig'>DINING</a>
-          <a href='/spa'>SPA</a>
-          <a href='/corporate'>CORPORATE</a>
-          <a href='/services'>SERVICES</a>
-          <a href='/contact'>CONTACT US</a>
-          <a href='/book' className='book'>
+          <NavLink to='/stay'>STAY</NavLink>
+          <NavLink to='/dining'>DINING</NavLink>
+          <NavLink to='/spa'>SPA</NavLink>
+          <NavLink to='/corporate'>CORPORATE</NavLink>
+          <NavLink to='/services'>SERVICES</NavLink>
+          <NavLink to='/contact'>CONTACT US</NavLink>
+          <NavLink to='/book' className='book'>
             BOOK NOW
-          </a>
+          </NavLink>
         </div>
       </nav>
       <div className={menu_class}>
