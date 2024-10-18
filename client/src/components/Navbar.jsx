@@ -64,6 +64,14 @@ function Navbar() {
             FlyoutContent={PricingContent}>
             Services
           </FlyoutLink>
+
+          <a href='/contact' className='btn'>
+            CONTACT US
+          </a>
+          <a href='/book' className='btn'></a>
+            BOOK NOW
+          </NavLink>
+
         </div>
       </nav>
       <div className={menu_class}>
