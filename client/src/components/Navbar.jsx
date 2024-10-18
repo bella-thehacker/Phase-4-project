@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
 import '../css/Navbar.css'
 import { AnimatePresence, motion } from 'framer-motion'
 import { fadeIn } from './Variants'
-
 
 function Navbar() {
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked')
@@ -58,20 +56,13 @@ function Navbar() {
             CONTACT US
           </NavLink>
 
-          <FlyoutLink
-            href='/services'
-            className='btn'
-            FlyoutContent={PricingContent}>
+          <FlyoutLink href='/services' className='btn' FlyoutContent={PricingContent}>
             Services
           </FlyoutLink>
 
-          <a href='/contact' className='btn'>
-            CONTACT US
-          </a>
-          <a href='/book' className='btn'></a>
+          <NavLink to='/book' className='btn'>
             BOOK NOW
           </NavLink>
-
         </div>
       </nav>
       <div className={menu_class}>
