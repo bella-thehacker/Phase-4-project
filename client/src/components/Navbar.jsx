@@ -1,9 +1,11 @@
 import React from 'react'
+import {NavLink} from 'react-router-dom'
 import { useState } from 'react'
 import '../css/Navbar.css'
 import { AnimatePresence, motion } from 'framer-motion'
 import { fadeIn } from './Variants'
 import ServiceDrop from './ServiceDrop'
+
 
 function Navbar() {
   const [burger_class, setBurgerClass] = useState('burger-bar unclicked')
@@ -26,9 +28,9 @@ function Navbar() {
       <nav>
         <div className='navigation_bar'>
           <div className='logo'>
-            <a href='/'>
+            <NavLink to='/'>
               <img src='/vistaa2.png' alt='' />
-            </a>
+            </NavLink>
           </div>
           <div className='line'></div>
           <div className='burger_menu' onClick={changeMenu}>
@@ -38,6 +40,13 @@ function Navbar() {
           </div>
         </div>
         <div className='navbar_buttons'>
+          <NavLink to='/stay'>STAY</NavLink>
+          <NavLink to='/dining'>DINING</NavLink>
+          <NavLink to='/spa'>SPA</NavLink>
+          <NavLink to='/corporate'>CORPORATE</NavLink>
+          <NavLink to='/services'>SERVICES</NavLink>
+          <NavLink to='/contact'>CONTACT US</NavLink>
+          <NavLink to='/book' className='book'>
           <a href='/stay' className='btn'>
             STAY
           </a>
@@ -61,7 +70,7 @@ function Navbar() {
           </a>
           <a href='/book' className='btn'>
             BOOK NOW
-          </a>
+          </NavLink>
         </div>
         {/* <div className="services_drop">
         <FlyoutLink href='/pricing' FlyoutContent={PricingContent}>
