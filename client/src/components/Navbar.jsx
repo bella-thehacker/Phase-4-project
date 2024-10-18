@@ -1,10 +1,9 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import '../css/Navbar.css'
 import { AnimatePresence, motion } from 'framer-motion'
 import { fadeIn } from './Variants'
-import ServiceDrop from './ServiceDrop'
 
 
 function Navbar() {
@@ -40,44 +39,40 @@ function Navbar() {
           </div>
         </div>
         <div className='navbar_buttons'>
-          <NavLink to='/stay'>STAY</NavLink>
-          <NavLink to='/dining'>DINING</NavLink>
-          <NavLink to='/spa'>SPA</NavLink>
-          <NavLink to='/corporate'>CORPORATE</NavLink>
-          <NavLink to='/services'>SERVICES</NavLink>
-          <NavLink to='/contact'>CONTACT US</NavLink>
-          <NavLink to='/book' className='book'>
-          <a href='/stay' className='btn'>
+          <NavLink to='/stay' className='btn'>
             STAY
-          </a>
-          <a href='/dinig' className='btn'>
+          </NavLink>
+          <NavLink to='/dining' className='btn'>
             DINING
-          </a>
-          <a href='/spa' className='btn'>
+          </NavLink>
+          <NavLink to='/spa' className='btn'>
             SPA
-          </a>
-          <a href='/corporate' className='btn'>
+          </NavLink>
+          <NavLink to='/corporate' className='btn'>
             CORPORATE
-          </a>
+          </NavLink>
+          <NavLink to='/services' className='btn'>
+            SERVICES
+          </NavLink>
+          <NavLink to='/contact' className='btn'>
+            CONTACT US
+          </NavLink>
+
           <FlyoutLink
             href='/services'
             className='btn'
             FlyoutContent={PricingContent}>
             Services
           </FlyoutLink>
+
           <a href='/contact' className='btn'>
             CONTACT US
           </a>
           <a href='/book' className='btn'></a>
             BOOK NOW
           </NavLink>
+
         </div>
-        {/* <div className="services_drop">
-        <FlyoutLink href='/pricing' FlyoutContent={PricingContent}>
-        Pricing
-      </FlyoutLink>
-      
-        </div> */}
       </nav>
       <div className={menu_class}>
         <div className='menus'>
@@ -127,7 +122,7 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
           style={{
             transform: showFlyout ? 'scaleX(1)' : 'scaleX(0)',
           }}
-          className='absolute -bottom-1 -left-2 -right-2 h-0.5 origin-left rounded-full bg-blue-500 transition-transform duration-300 ease-out'
+          className='absolute -bottom-1 -left-2 -right-2 h-0.5 origin-left rounded-full bg-white transition-transform duration-300 ease-out'
         />
       </a>
       <AnimatePresence>
