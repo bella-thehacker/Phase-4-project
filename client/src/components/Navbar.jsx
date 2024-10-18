@@ -37,6 +37,8 @@ function Navbar() {
         <div className='navbar_buttons'>
           <a href='/stay'>STAY</a>
           <a href='/dinig'>DINING</a>
+          <a href='/spa'>SPA</a>
+          <a href='/corporate'>CORPORATE</a>
           <a href='/services'>SERVICES</a>
           <a href='/contact'>CONTACT US</a>
           <a href='/book' className='book'>
