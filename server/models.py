@@ -37,11 +37,10 @@ class User(db.Model, SerializerMixin):
     password_hash = db.Column(db.String(128), nullable=False)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     reviews = db.relationship('Review', backref='user', lazy=True)
     bookings = db.relationship('Booking', backref='user', lazy=True)
-    tags = association_proxy('user_tags', 'tag')
+    tags = db.relationship('Tag', secondary=user_tag, back_populates='users')
 
     # Validation for email
     @validates('email')
@@ -58,7 +57,6 @@ class User(db.Model, SerializerMixin):
             'email': self.email,
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'created_at': self.created_at.isoformat() if self.created_at else None,
             'reviews': [review.to_dict() for review in self.reviews],
             'bookings': [booking.to_dict() for booking in self.bookings],
             'tags': [tag.name for tag in self.tags],
@@ -75,11 +73,10 @@ class Hotel(db.Model, SerializerMixin):
     description = db.Column(db.Text, nullable=True)
     star_rating = db.Column(db.Integer, nullable=True)
     amenities = db.Column(db.String(250), nullable=True)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     rooms = db.relationship('Room', backref='hotel', lazy=True)
     reviews = db.relationship('Review', backref='hotel', lazy=True)
-    tags = association_proxy('hotel_tags', 'tag')
+    tags = db.relationship('Tag', secondary=hotel_tag, back_populates='hotels')
 
     
     def to_dict(self):
@@ -90,7 +87,6 @@ class Hotel(db.Model, SerializerMixin):
             'description': self.description,
             'star_rating': self.star_rating,
             'amenities': self.amenities,
-            'created_at': self.created_at.isoformat() if self.created_at else None,
             'rooms': [room.to_dict() for room in self.rooms],
             'reviews': [review.to_dict() for review in self.reviews],
             'tags': [tag.name for tag in self.tags],
@@ -107,7 +103,6 @@ class Room(db.Model, SerializerMixin):
     price_per_night = db.Column(db.Float, nullable=False)
     bed_count = db.Column(db.Integer, nullable=False)
     max_occupancy = db.Column(db.Integer, nullable=False)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
     
     def to_dict(self):
@@ -118,7 +113,6 @@ class Room(db.Model, SerializerMixin):
             'price_per_night': self.price_per_night,
             'bed_count': self.bed_count,
             'max_occupancy': self.max_occupancy,
-            'created_at': self.created_at.isoformat() if self.created_at else None,
         }
 
 # Review Model
@@ -184,12 +178,13 @@ class Tag(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
 
-    hotels = association_proxy('hotel_tags', 'hotel')
-    users = association_proxy('user_tags', 'user')
-
+    # Define the relationships using db.relationship()
+    hotels = db.relationship('Hotel', secondary=hotel_tag, back_populates='tags')
+    users = db.relationship('User', secondary=user_tag, back_populates='tags')
 
     def to_dict(self):
         return {
             'id': self.id,
             'name': self.name,
         }
+
