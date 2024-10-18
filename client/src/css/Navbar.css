@@ -31,12 +31,12 @@ nav {
   left: 0;
   bottom: 0;
   width: 0;
-  height: 0.1rem;
+  height: 0.13rem;
   background-color: #ffffff;
   transition: all 0.45s;
 }
 
-.navbar_buttons btn:hover::before {
+.navbar_buttons .btn:hover::before {
   width: 100%;
 }
 /*Formating the navbar and the burger menu*/
