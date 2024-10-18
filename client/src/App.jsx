@@ -12,11 +12,13 @@ import Contact from './components/Contact'
 
 
 
+
 function App() {
 
   return (
     <>
       <Navbar />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/stay" element={<Stay />} />
@@ -28,7 +30,6 @@ function App() {
         
       </Routes>
       
-    
     </>
   )
 }
