@@ -60,7 +60,14 @@ function Navbar() {
             Services
           </FlyoutLink>
 
+
           <NavLink to='/book' className='btn'>
+
+          <a href='/contact' className='btn'>
+            CONTACT US
+          </a>
+          <a href='/book' className='btn'></a>
+
             BOOK NOW
           </NavLink>
         </div>

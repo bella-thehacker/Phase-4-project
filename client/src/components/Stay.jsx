@@ -56,7 +56,7 @@ function Stay() {
       </div>
 
       <div className="classic-room">
-        <img src="https://images.pexels.com/photos/3634741/pexels-photo-3634741.jpeg?auto=compress&cs=tinysrgb&w=600" alt="classic room" />
+        <img src="https://www.hemingways-collection.com/wp-content/uploads/2020/07/Home-Stay-Blixen-Suite.jpg?format=auto&width=2000" alt="classic room" />
 
         <div id="classic-words">
         <h3>
@@ -76,7 +76,7 @@ function Stay() {
       </div>
 
       <div className="classic-room">
-        <img src="https://plus.unsplash.com/premium_photo-1661964402307-02267d1423f5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjByb29tfGVufDB8fDB8fHww" alt="classic room" />
+        <img src="https://www.hemingways-collection.com/wp-content/uploads/2020/07/Blixen-living-and-dining.jpg?format=auto&width=2000" alt="classic room" />
         <div id="classic-words">
         <h3>
           <strong>Panoramic Suite </strong>
@@ -160,30 +160,30 @@ function Stay() {
 
       <div className="stay-bottom">
         <div className="bottom-words">
-        <h2> Your idea Getaway is just a click away!</h2>
+        <h2> Your ideal Getaway is just a click away!</h2>
         <p>whether you are planning your trip, event or just a solo escape, discover our enticing offers today and embark on a journey to unforgettable experiences.</p>
         </div>
 
         <div id="bottom-icons">
-        <div>
+        <div id="icon-part">
         <RiSecurePaymentFill  size={50}/>
         <p>We guarantee the security of each transaction</p>
         </div>
 
-        <div>
+        <div id="icon-part">
         <MdOutlinePriceCheck size={50}/>
         <p>Special offers and packages available only on our website</p>
         </div>
 
-        <div>
+        <div id="icon-part">
         <FaShippingFast  size={50}/>
         <p>Receive instant booking confirmation</p>
         </div>
 
 
-        <div>
+        <div id="icon-part">
         <RiCustomerServiceFill size={50}/>
-        <p>We have amazing customer service</p>
+        <p>24/7 Assistance</p>
         </div>
 
 
