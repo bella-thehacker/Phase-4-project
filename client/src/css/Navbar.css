@@ -11,7 +11,7 @@ nav {
   margin-right: 5rem;
 }
 
-.navbar_buttons a {
+.navbar_buttons .btn {
   color: white;
   font-size: 1.5rem;
   font-weight: bold;
@@ -21,11 +21,11 @@ nav {
   opacity: 0.9;
 }
 
-.navbar_buttons a:hover {
+.navbar_buttons .btn:hover {
   opacity: 1;
 }
 
-.navbar_buttons a::before {
+.navbar_buttons .btn::before {
   content: '';
   position: absolute;
   left: 0;
@@ -36,7 +36,7 @@ nav {
   transition: all 0.45s;
 }
 
-.navbar_buttons a:hover::before {
+.navbar_buttons btn:hover::before {
   width: 100%;
 }
 /*Formating the navbar and the burger menu*/
@@ -137,6 +137,8 @@ img {
 .hidden {
   display: none;
 }
+
+/* helooooooooooo */
 
 .visible {
   display: inherit;
