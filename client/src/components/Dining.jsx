@@ -2,17 +2,16 @@ import React, { useRef } from "react";
 import { MdRestaurantMenu } from "react-icons/md";
 
 function Dining() {
-
-  const glowRef = useRef(null)
-  const horizonRef = useRef(null)
-  const hideRef = useRef(null)
-  const rubyRef = useRef(null)
-  const cascadeRef = useRef(null)
-  const peacockRef = useRef(null)
+  const glowRef = useRef(null);
+  const horizonRef = useRef(null);
+  const hideRef = useRef(null);
+  const rubyRef = useRef(null);
+  const cascadeRef = useRef(null);
+  const peacockRef = useRef(null);
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
-  }
+  };
 
   return (
     <div>
@@ -28,12 +27,30 @@ function Dining() {
       </div>
 
       <div className="dining-body">
-        <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17210489325494_glow.png" onClick={() =>scrollToSection(glowRef)} />
-        <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144685598893_horizon.png" onClick={() =>scrollToSection(horizonRef)} />
-        <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144671207319_thehide.png"  onClick={() =>scrollToSection(hideRef)} />
-        <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144685605336_ruby.png"   onClick={() =>scrollToSection(rubyRef)} />
-        <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144685590755_cascade.png"  onClick={() =>scrollToSection(cascadeRef)} />
-        <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144685602062_peacock.png"  onClick={() =>scrollToSection(peacockRef)} />
+        <img
+          src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17210489325494_glow.png"
+          onClick={() => scrollToSection(glowRef)}
+        />
+        <img
+          src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144685598893_horizon.png"
+          onClick={() => scrollToSection(horizonRef)}
+        />
+        <img
+          src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144671207319_thehide.png"
+          onClick={() => scrollToSection(hideRef)}
+        />
+        <img
+          src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144685605336_ruby.png"
+          onClick={() => scrollToSection(rubyRef)}
+        />
+        <img
+          src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144685590755_cascade.png"
+          onClick={() => scrollToSection(cascadeRef)}
+        />
+        <img
+          src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17144685602062_peacock.png"
+          onClick={() => scrollToSection(peacockRef)}
+        />
       </div>
 
       <div ref={glowRef} id="glow-hotel">
@@ -50,16 +67,17 @@ function Dining() {
             <p>Breakfast: 6:30am - 10:30am</p>
             <p>Lunch: 11:00am - 3:00pm</p>
             <p>Dinner: 4:00pm - 10:00pm</p>
-            
           </div>
           <div id="glow-hotel-menu">
-          <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222292379018_Glow.pdf"> View menu <MdRestaurantMenu size={40}/> </a>
+            <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222292379018_Glow.pdf">
+              {" "}
+              View menu <MdRestaurantMenu size={40} />{" "}
+            </a>
           </div>
         </div>
-        
       </div>
 
-      <div  ref={horizonRef} id="horizon-hotel">
+      <div ref={horizonRef} id="horizon-hotel">
         <div id="horizon-hotel-words">
           <h2>Horizon Rooftop Bar</h2>
           <p>
@@ -77,8 +95,11 @@ function Dining() {
             <p>Dinner: 4:00pm - 10:00pm</p>
           </div>
 
-          <div  id="horizon-hotel-menu">
-          <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222292380481_Horizon.pdf"> View menu <MdRestaurantMenu size={40}/> </a>
+          <div id="horizon-hotel-menu">
+            <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222292380481_Horizon.pdf">
+              {" "}
+              View menu <MdRestaurantMenu size={40} />{" "}
+            </a>
           </div>
         </div>
         <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/1200x900/17047916558436_gleehotelrooftopbar.jpg" />
@@ -102,7 +123,10 @@ function Dining() {
           </div>
 
           <div id="glow-hotel-menu">
-          <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222336457369_Hide.pdf"> View menu <MdRestaurantMenu size={40}/> </a>
+            <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222336457369_Hide.pdf">
+              {" "}
+              View menu <MdRestaurantMenu size={40} />{" "}
+            </a>
           </div>
         </div>
       </div>
@@ -125,7 +149,10 @@ function Dining() {
             <p>3:00pm - 1:00am</p>
           </div>
           <div id="horizon-hotel-menu">
-          <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/172105230663_Ruby.pdf"> View menu <MdRestaurantMenu size={40}/> </a>
+            <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/172105230663_Ruby.pdf">
+              {" "}
+              View menu <MdRestaurantMenu size={40} />{" "}
+            </a>
           </div>
         </div>
         <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/952x721/1704791656798_gleehotelrubynightclub.jpg" />
@@ -136,7 +163,11 @@ function Dining() {
         <div id="glow-hotel-words">
           <h2>Cascade Café</h2>
           <p>
-          An all-day café and terrace, Cascade is a place to enjoy curated coffees, infusions, patisserie, small eats and afternoon tea in a garden setting. Cascade offers a wonderful space to work outdoors, catch up with friends, conduct informal meetings or even host small events.
+            An all-day café and terrace, Cascade is a place to enjoy curated
+            coffees, infusions, patisserie, small eats and afternoon tea in a
+            garden setting. Cascade offers a wonderful space to work outdoors,
+            catch up with friends, conduct informal meetings or even host small
+            events.
           </p>
           <div className="glow-hours">
             <h3>Hours of Operation</h3>
@@ -146,7 +177,10 @@ function Dining() {
           </div>
 
           <div id="glow-hotel-menu">
-          <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222292379018_Glow.pd"> View menu <MdRestaurantMenu size={40}/> </a>
+            <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222292379018_Glow.pd">
+              {" "}
+              View menu <MdRestaurantMenu size={40} />{" "}
+            </a>
           </div>
         </div>
       </div>
@@ -155,7 +189,11 @@ function Dining() {
         <div id="horizon-hotel-words">
           <h2>Peacock Bar & Lounge</h2>
           <p>
-          An eclectic and eccentric space inspired by the 1920s oriental aesthetic and the exotic and vibrant colours of the peacock, serving contemporary pan-Asian cuisine. A place that exudes the luxurious essence of Glee for relaxed good times, intimate drinks and mellow evenings to acoustic jazz music.
+            An eclectic and eccentric space inspired by the 1920s oriental
+            aesthetic and the exotic and vibrant colours of the peacock, serving
+            contemporary pan-Asian cuisine. A place that exudes the luxurious
+            essence of Glee for relaxed good times, intimate drinks and mellow
+            evenings to acoustic jazz music.
           </p>
 
           <div className="horizon-hours">
@@ -165,13 +203,14 @@ function Dining() {
             <p>3:00pm - 1:00am</p>
           </div>
           <div id="horizon-hotel-menu">
-          <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222292381165_Peacock.pdf"> View menu <MdRestaurantMenu size={40}/> </a>
+            <a href="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17222292381165_Peacock.pdf">
+              {" "}
+              View menu <MdRestaurantMenu size={40} />{" "}
+            </a>
           </div>
         </div>
         <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/1200x900/17080704669942_gleehotelpeacockloungeandbar.jpg" />
       </div>
-
-
     </div>
   );
 }
