@@ -43,26 +43,58 @@ def seed_data():
     # ------------------- Rooms -------------------
     room1 = Room(
         hotel_id=1,
-        room_type='Deluxe Suite',
+        room_type='Classic Room',
         price_per_night=350.00,
         bed_count=1,
-        max_occupancy=2,
+        max_occupancy=3,
     )
 
     room2 = Room(
         hotel_id=1,
-        room_type='Standard Room',
+        room_type='Premier Room',
         price_per_night=150.00,
         bed_count=2,
-        max_occupancy=4,
+        max_occupancy=3,
     )
 
     room3 = Room(
         hotel_id=2,
-        room_type='Ocean View Room',
+        room_type='Grand Deluxe Room',
         price_per_night=400.00,
         bed_count=1,
-        max_occupancy=2,
+        max_occupancy=3,
+    )
+
+    room3 = Room(
+        hotel_id=2,
+        room_type='Panoramic Suite',
+        price_per_night=400.00,
+        bed_count=1,
+        max_occupancy=3,
+    )
+
+    room3 = Room(
+        hotel_id=2,
+        room_type='Skyline Suite',
+        price_per_night=400.00,
+        bed_count=1,
+        max_occupancy=3,
+    )
+
+    room3 = Room(
+        hotel_id=2,
+        room_type='Imperial Suite',
+        price_per_night=400.00,
+        bed_count=1,
+        max_occupancy=3,
+    )
+
+    room3 = Room(
+        hotel_id=2,
+        room_type='Presidential Suite',
+        price_per_night=400.00,
+        bed_count=1,
+        max_occupancy=3,
     )
 
     # ------------------- Reviews -------------------
