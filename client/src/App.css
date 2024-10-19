@@ -132,3 +132,179 @@
 #icon-part{
   margin-bottom: 5%;
 }
+
+
+.dining-top{
+display: flex;
+justify-content: center;
+
+}
+
+.dining-top img{
+  width: 100%;
+  height: 45rem;
+}
+
+.dining-top-text{
+  margin-top: 30%;
+  position: absolute;
+  top: -20%;
+  left: 25%;
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: 200%;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.dining-top-text h1{
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 200%;
+}
+
+.dining-top-text h3{
+  text-align: center;
+  font-size: 100%;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.dining-body{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5%;
+  width: 100%;
+  height: 20rem;
+  background-color: #cfcfcc;
+  margin-bottom: 10%;
+}
+
+.dining-body img{
+  width: 10rem;
+  height: 10rem;
+  margin-top: 5%;
+  
+}
+
+#glow-hotel{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+#glow-hotel img{
+  width: 60rem;
+  height: 30rem;
+}
+
+#glow-hotel-words{
+  margin-left: 5%;
+  margin-top: 5%;
+  width: 20rem;
+}
+
+#glow-hotel-words h2{
+  text-align: center;
+  font-size: 200%;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  padding-bottom: 5%;
+}
+
+#glow-hotel-words .glow-hours{
+  text-align: center;
+  padding-top: 5%;
+} 
+
+#glow-hotel #glow-hotel-menu{
+  margin-left: 35%;
+  color: #C1A267;
+}
+
+#glow-hotel #glow-hotel-menu a{
+  text-decoration: none;
+  font-size: 25px;
+  color: #C1A267; 
+  display: flex;
+  align-items: center;
+  margin-top: 2%;
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+#glow-hotel-menu a svg {
+  margin-left: 8px; 
+  transition: color 0.3s ease; 
+}
+
+#glow-hotel-menu a:hover svg {
+  color: #3c3c3b; 
+}
+
+#horizon-hotel{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+#horizon-hotel img{
+  width: 60rem;
+  height: 30rem;
+}
+
+#horizon-hotel-words{
+  margin-right: 5%;
+  margin-top: 5%;
+  width: 30rem;
+}
+
+#horizon-hotel-words h2{
+  text-align: center;
+  font-size: 200%;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  padding-bottom: 5%;
+}
+
+#horizon-hotel-words .horizon-hours{
+  text-align: center;
+  padding-top: 5%;
+}
+
+#horizon-hotel-menu{
+  margin-left: 35%;
+  color: #C1A267;
+}
+
+#horizon-hotel-menu a{
+  text-decoration: none;
+  font-size:25px;
+  color: #C1A267; 
+  display: flex;
+  align-items: center;
+  margin-top: 2%;
+  font-family: "Pattaya", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+#horizon-hotel-menu a svg {
+  margin-left: 8px; 
+  transition: color 0.3s ease; 
+}
+
+#horizon-hotel-menu a:hover svg {
+  color: #3c3c3b; 
+}
