@@ -58,12 +58,7 @@ function Navbar() {
             CONTACT US
           </NavLink>
 
-          <FlyoutLink
-            href='/services'
-            className='btn'
-            FlyoutContent={PricingContent}>
-            Services
-          </FlyoutLink>
+          
         </div>
       </nav>
       <div className={menu_class}>
@@ -94,6 +89,14 @@ function Navbar() {
             className='burger_image4'></motion.div>
         </div>
       </div>
+      {/* <div className="flyout">
+        <FlyoutLink
+            href='/services'
+            className='btn'
+            FlyoutContent={PricingContent}>
+            Services
+          </FlyoutLink>
+      </div> */}
     </>
   )
 }
