@@ -37,6 +37,35 @@ function Navbar() {
           </div>
         </div>
         <div className='navbar_buttons'>
+          <div className='buttonss'>
+            <NavLink to='/stay' className='btn'>
+              STAY
+            </NavLink>
+            <NavLink to='/dining' className='btn'>
+              DINING
+            </NavLink>
+            <NavLink to='/spa' className='btn'>
+              SPA
+            </NavLink>
+            <NavLink to='/corporate' className='btn'>
+              CORPORATE
+            </NavLink>
+            <NavLink to='/services' className='btn'>
+              SERVICES
+            </NavLink>
+            <NavLink to='/contact' className='btn'>
+              CONTACT US
+            </NavLink>
+          </div>
+          <div className='book'>
+            <NavLink to='/book' className='btn'>
+              BOOK NOW
+            </NavLink>
+          </div>
+        </div>
+      </nav>
+      <div className={menu_class}>
+        <div className='menus'>
           <NavLink to='/stay' className='btn'>
             STAY
           </NavLink>
@@ -55,34 +84,6 @@ function Navbar() {
           <NavLink to='/contact' className='btn'>
             CONTACT US
           </NavLink>
-        </div>
-      </nav>
-      <div className={menu_class}>
-        <div className='menus'>
-          <motion.div
-            variants={fadeIn('right', 0.2)}
-            initial='hidden'
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.7 }}
-            className='burger_image1'></motion.div>
-          <motion.div
-            variants={fadeIn('right', 0.6)}
-            initial='hidden'
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.7 }}
-            className='burger_image2'></motion.div>
-          <motion.div
-            variants={fadeIn('right', 0.8)}
-            initial='hidden'
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.7 }}
-            className='burger_image3'></motion.div>
-          <motion.div
-            variants={fadeIn('right', 1)}
-            initial='hidden'
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.7 }}
-            className='burger_image4'></motion.div>
         </div>
       </div>
     </>
