@@ -65,7 +65,7 @@ def seed_data():
         max_occupancy=3,
     )
 
-    room3 = Room(
+    room4 = Room(
         hotel_id=2,
         room_type='Panoramic Suite',
         price_per_night=400.00,
@@ -73,7 +73,7 @@ def seed_data():
         max_occupancy=3,
     )
 
-    room3 = Room(
+    room5 = Room(
         hotel_id=2,
         room_type='Skyline Suite',
         price_per_night=400.00,
@@ -81,7 +81,7 @@ def seed_data():
         max_occupancy=3,
     )
 
-    room3 = Room(
+    room6 = Room(
         hotel_id=2,
         room_type='Imperial Suite',
         price_per_night=400.00,
@@ -89,7 +89,7 @@ def seed_data():
         max_occupancy=3,
     )
 
-    room3 = Room(
+    room7 = Room(
         hotel_id=2,
         room_type='Presidential Suite',
         price_per_night=400.00,
@@ -148,7 +148,7 @@ def seed_data():
     user1.tags.append(tag3)
 
     # ------------------- Add to Session -------------------
-    db.session.add_all([user1, user2, hotel1, hotel2, room1, room2, room3, review1, review2, booking1, booking2, tag1, tag2, tag3])
+    db.session.add_all([user1, user2, hotel1, hotel2, room1, room2, room3, room4, room5, room6, room7, review1, review2, booking1, booking2, tag1, tag2, tag3])
 
     # Commit to the database
     db.session.commit()
