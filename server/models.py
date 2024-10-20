@@ -4,6 +4,7 @@ from sqlalchemy.orm import validates
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy_serializer import SerializerMixin # type: ignore
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 metadata = MetaData(
@@ -34,9 +35,15 @@ class User(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password_hash = db.Column(db.String(128), nullable=False)
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
+    
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+        
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
 
     reviews = db.relationship('Review', backref='user', lazy=True)
     bookings = db.relationship('Booking', backref='user', lazy=True)
@@ -49,7 +56,6 @@ class User(db.Model, SerializerMixin):
             raise ValueError("Invalid email format.")
         return value
 
-
     def to_dict(self):
         return {
             'id': self.id,
@@ -59,7 +65,7 @@ class User(db.Model, SerializerMixin):
             'last_name': self.last_name,
             'reviews': [review.to_dict() for review in self.reviews],
             'bookings': [booking.to_dict() for booking in self.bookings],
-            'tags': [tag.name for tag in self.tags],
+            'tags': [tag.to_dict() for tag in self.tags],  # Changed for proper serialization
         }
 
 # Hotel Model
@@ -78,7 +84,6 @@ class Hotel(db.Model, SerializerMixin):
     reviews = db.relationship('Review', backref='hotel', lazy=True)
     tags = db.relationship('Tag', secondary=hotel_tag, back_populates='hotels')
 
-    
     def to_dict(self):
         return {
             'id': self.id,
@@ -89,8 +94,9 @@ class Hotel(db.Model, SerializerMixin):
             'amenities': self.amenities,
             'rooms': [room.to_dict() for room in self.rooms],
             'reviews': [review.to_dict() for review in self.reviews],
-            'tags': [tag.name for tag in self.tags],
+            'tags': [tag.to_dict() for tag in self.tags],  # Changed for proper serialization
         }
+
 
 # Room Model
 class Room(db.Model, SerializerMixin):

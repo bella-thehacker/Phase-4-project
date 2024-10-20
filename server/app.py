@@ -1,92 +1,141 @@
 from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from models import *
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///hotel.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 db.init_app(app)
 migrate = Migrate(app, db)
+jwt = JWTManager(app)  # Initialize JWT
 
 @app.route('/')
 def index():
     return "Vista Hotel Database"
 
-# ------------------- User Routes -------------------
-
-@app.route('/users', methods=['GET'])
-def get_users():
-    users = User.query.all()
-    return jsonify([user.to_dict() for user in users]), 200
-
-@app.route('/users/<int:id>', methods=['GET'])
-def get_user(id):
-    user = User.query.get(id)
-    if user:
-        return jsonify(user.to_dict()), 200
-    return jsonify({"error": "User not found"}), 404
-
-@app.route('/users', methods=['POST'])
-def create_user():
+# ------------------- Auth Routes -------------------
+@app.route('/login', methods=['POST'])
+def login():
     data = request.json
-    if not data or not all(key in data for key in ['username', 'email', 'password_hash', 'first_name', 'last_name']):
+    if not data or not all(key in data for key in ['username', 'password']):
+        return jsonify({"error": "Missing username or password"}), 400
+
+    user = User.query.filter_by(username=data['username']).first()
+    
+    if not user or not user.check_password(data['password']):
+        return jsonify({"error": "Invalid credentials"}), 401
+
+    # Create JWT token
+    access_token = create_access_token(identity=user.id)
+    return jsonify(access_token=access_token), 200
+
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.json
+    if not data or not all(key in data for key in ['username', 'email', 'password', 'first_name', 'last_name']):
         return jsonify({"error": "Missing required fields"}), 400
+
+    existing_user = User.query.filter_by(username=data['username']).first()
+    if existing_user:
+        return jsonify({"error": "User already exists"}), 409
 
     try:
         new_user = User(
             username=data.get('username'),
             email=data.get('email'),
-            password_hash=data.get('password_hash'),
             first_name=data.get('first_name'),
             last_name=data.get('last_name')
         )
+        new_user.set_password(data.get('password'))
         db.session.add(new_user)
         db.session.commit()
-        return jsonify(new_user.to_dict()), 201
+
+        # Create JWT token
+        access_token = create_access_token(identity=new_user.id)
+        return jsonify(access_token=access_token), 201
     except Exception as e:
-        db.session.rollback()  # Rollback in case of error
+        db.session.rollback()
         return jsonify({"error": str(e)}), 500
-    
-@app.route('/users/<int:id>', methods=['PATCH'])
-def update_user(id):
-    user = User.query.get(id)
-    if not user:
-        return jsonify({"error": "User not found"}), 404
 
-    data = request.json
-    if 'username' in data:
-        user.username = data['username']
-    if 'email' in data:
-        user.email = data['email']
-    if 'password_hash' in data:
-        user.password_hash = data['password_hash']
-    if 'first_name' in data:
-        user.first_name = data['first_name']
-    if 'last_name' in data:
-        user.last_name = data['last_name']
-
-    try:
-        db.session.commit()
+# ------------------- Profile Routes -------------------
+@app.route('/profile', methods=['GET'])
+@jwt_required()
+def profile():
+    user_id = get_jwt_identity()
+    user = User.query.get(user_id)
+    if user:
         return jsonify(user.to_dict()), 200
-    except Exception as e:
-        db.session.rollback()
-        return jsonify({"error": str(e)}), 500
+    return jsonify({"error": "User not found"}), 404
 
+@app.route('/users', methods=['GET', 'POST'])
+@jwt_required()  
+def handle_users():
+    if request.method == 'GET':
+        users = User.query.all()
+        return jsonify([user.to_dict() for user in users]), 200
 
-@app.route('/users/<int:id>', methods=['DELETE'])
-def delete_user(id):
+    if request.method == 'POST':
+        data = request.json
+        if not data or not all(key in data for key in ['username', 'email', 'password', 'first_name', 'last_name']):
+            return jsonify({"error": "Missing required fields"}), 400
+
+        try:
+            new_user = User(
+                username=data.get('username'),
+                email=data.get('email'),
+                first_name=data.get('first_name'),
+                last_name=data.get('last_name')
+            )
+            new_user.set_password(data['password'])
+            db.session.add(new_user)
+            db.session.commit()
+            return jsonify(new_user.to_dict()), 201
+        except Exception as e:
+            db.session.rollback()
+            return jsonify({"error": str(e)}), 500
+
+@app.route('/users/<int:id>', methods=['GET', 'PATCH', 'DELETE'])
+@jwt_required()
+def handle_user(id):
     user = User.query.get(id)
+    
     if not user:
         return jsonify({"error": "User not found"}), 404
+    
+    if request.method == 'GET':
+        return jsonify(user.to_dict()), 200
 
-    try:
-        db.session.delete(user)
-        db.session.commit()
-        return jsonify({"message": "User deleted successfully"}), 200
-    except Exception as e:
-        db.session.rollback()
-        return jsonify({"error": str(e)}), 500
+    if request.method == 'PATCH':
+        data = request.json
+        if 'username' in data:
+            user.username = data['username']
+        if 'email' in data:
+            user.email = data['email']
+        if 'password' in data:
+            user.set_password(data['password'])
+        if 'first_name' in data:
+            user.first_name = data['first_name']
+        if 'last_name' in data:
+            user.last_name = data['last_name']
+
+        try:
+            db.session.commit()
+            return jsonify(user.to_dict()), 200
+        except Exception as e:
+            db.session.rollback()
+            return jsonify({"error": str(e)}), 500
+
+    if request.method == 'DELETE':
+        try:
+            db.session.delete(user)
+            db.session.commit()
+            return jsonify({"message": "User deleted successfully"}), 200
+        except Exception as e:
+            db.session.rollback()
+            return jsonify({"error": str(e)}), 500
 
 # ------------------- Hotel Routes -------------------
 @app.route('/hotels', methods=['GET'])
@@ -129,6 +178,7 @@ def get_review(id):
     return jsonify({"error": "Review not found"}), 404
 
 @app.route('/reviews', methods=['POST'])
+@jwt_required()
 def create_review():
     data = request.json
     new_review = Review(
@@ -189,6 +239,7 @@ def get_booking(id):
     return jsonify({"error": "Booking not found"}), 404
 
 @app.route('/bookings', methods=['POST'])
+@jwt_required()
 def create_booking():
     data = request.json
     new_booking = Booking(
