@@ -308,3 +308,99 @@ justify-content: center;
 #horizon-hotel-menu a:hover svg {
   color: #3c3c3b; 
 }
+
+
+.spa-top{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+.spa-top img{
+  width: 100%;
+  height: 60rem;
+}
+
+.spa-top .spa-top-words{
+  margin-top: 30%;
+  position: absolute;
+  top: -11%;
+  left: 35%;
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: 200%;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  padding-bottom: 5%;
+  
+
+  
+              
+
+}
+
+.spa-top-words h1{
+  text-align: center;
+  
+}
+
+.spa-body{
+  margin-bottom: 5%;
+  
+  
+}
+
+.spa-body h2{
+  margin-left: 35%;
+  margin-bottom: 2%;
+  width: 40rem;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
+  
+  
+}
+
+.spa-body-words{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.spa-body-words p{
+  width: 30rem;
+}
+
+#spa-packages{
+  display: flex;
+  justify-content: space-around;
+}
+
+#spa-packages-1{
+margin-left: 10%;
+
+}
+
+#spa-packages-1 img{
+  width: 30rem;
+  height: 15rem;
+  padding-top: 2%;
+}
+
+#spa-packages-2{
+  width: 30rem;
+  margin-top: 20%;
+  margin-right: 10%;
+}
+
+#spa-packages-2 img{
+  width: 35rem;
+  height: 50rem;
+}
+
+.spa-slider{
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
