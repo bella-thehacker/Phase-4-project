@@ -8,7 +8,7 @@ const BookNow = () => {
     useEffect(() => {
         const fetchRooms = async () => {
             try {
-                const response = await fetch('/book_now', {
+                const response = await fetch(' http://127.0.0.1:8040/rooms', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -32,7 +32,7 @@ const BookNow = () => {
     const handleBooking = async (values, { setSubmitting }) => {
         setError('');
         try {
-            const response = await fetch('/book_now', {
+            const response = await fetch(' http://127.0.0.1:8040/rooms', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
