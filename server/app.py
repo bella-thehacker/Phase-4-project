@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from models import *
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import *
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///hotel.db"
@@ -10,7 +10,8 @@ app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 db.init_app(app)
 migrate = Migrate(app, db)
-jwt = JWTManager(app)  # Initialize JWT
+jwt = JWTManager(app)
+blocklist = set()
 
 @app.route('/')
 def index():
@@ -31,6 +32,14 @@ def login():
     # Create JWT token
     access_token = create_access_token(identity=user.id)
     return jsonify(access_token=access_token), 200
+
+@app.route('/logout', methods=['POST'])
+@jwt_required()
+def logout():
+    jti = get_jwt()["jti"]
+    
+    blocklist.add(jti)
+    return jsonify({"message": "Successfully logged out"}), 200
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -192,6 +201,7 @@ def create_review():
     return jsonify(new_review.to_dict()), 201
 
 @app.route('/reviews/<int:id>', methods=['PATCH'])
+@jwt_required()
 def update_review(id):
     review = Review.query.get(id)
     if not review:
@@ -212,6 +222,7 @@ def update_review(id):
 
 
 @app.route('/reviews/<int:id>', methods=['DELETE'])
+@jwt_required()
 def delete_review(id):
     review = Review.query.get(id)
     if not review:
@@ -227,6 +238,7 @@ def delete_review(id):
 
 # ------------------- Booking Routes -------------------
 @app.route('/bookings', methods=['GET'])
+@jwt_required()
 def get_bookings():
     bookings = Booking.query.all()
     return jsonify([booking.to_dict() for booking in bookings]), 200
@@ -275,6 +287,7 @@ def update_booking(id):
         return jsonify({"error": str(e)}), 500
 
 @app.route('/bookings/<int:id>', methods=['DELETE'])
+@jwt_required()
 def delete_booking(id):
     booking = Booking.query.get(id)
     if not booking:
