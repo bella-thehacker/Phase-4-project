@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request
 from flask_migrate import Migrate
 from models import *
 from flask_jwt_extended import *
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///hotel.db"
@@ -9,6 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 db.init_app(app)
+CORS(app)
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
 blocklist = set()

@@ -50,11 +50,11 @@ function Navbar() {
             <NavLink to='/corporate' className='btn'>
               CORPORATE
             </NavLink>
-            <NavLink to='/services' className='btn'>
-              SERVICES
-            </NavLink>
             <NavLink to='/contact' className='btn'>
               CONTACT US
+            </NavLink>
+            <NavLink to='/membership' className='btn'>
+              MEMBERSHIP
             </NavLink>
           </div>
           <div className='book'>
@@ -77,9 +77,6 @@ function Navbar() {
           </NavLink>
           <NavLink to='/corporate' className='btn'>
             CORPORATE
-          </NavLink>
-          <NavLink to='/services' className='btn'>
-            SERVICES
           </NavLink>
           <NavLink to='/contact' className='btn'>
             CONTACT US
