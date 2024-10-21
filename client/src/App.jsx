@@ -6,11 +6,9 @@ import Stay from './components/Stay'
 import Dining from './components/Dining'
 import Spa from './components/Spa'
 import Corporate from './components/Corporate'
-import Services from './components/Services'
 import Contact from './components/Contact'
-
-
-
+import BookNow from './components/BookNow'
+import Membership from './components/Membership'
 
 
 function App() {
@@ -25,9 +23,9 @@ function App() {
         <Route path="/dining" element={<Dining />} />
         <Route path="/spa" element={<Spa />} />
         <Route path="/corporate" element={<Corporate />} />
-        <Route path="/services" element={<Services />} />
         <Route path="/contact uc" element={<Contact />} />
-        
+        <Route path="/book-now" element={<BookNow/>} />
+        <Route path="/membership" element={<Membership />} />
       </Routes>
       
     </>

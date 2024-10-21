@@ -1,0 +1,41 @@
+.corporate-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.corporate-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.corporate-description, .corporate-facilities, .conference-packages, .contact-info {
+  margin-bottom: 40px;
+}
+
+.rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.room {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  width: calc(20% - 20px);
+  text-align: center;
+}
+
+.package {
+  margin-bottom: 20px;
+}
+
+.package h3, .package h4 {
+  margin: 10px 0;
+}
+
+.contact-info {
+  text-align: center;
+}

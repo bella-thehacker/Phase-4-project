@@ -45,7 +45,9 @@ function HomePage() {
                 - CONTACT US -
               </NavLink>
             </div>
-            <h1><span className='type-writer-text'>{text}</span></h1>
+            <h1>
+              <span className='type-writer-text'>{text}</span>
+            </h1>
           </div>
         </div>
       </div>
@@ -81,7 +83,44 @@ function HomePage() {
             View More
           </NavLink>
         </div>
-        <div className='img_carousel'></div>
+
+        <div className='stay_imgs'>
+          <div className='mx-1 flex flex-row justify-around h-1/2 '>
+            <img
+              src='https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600'
+              alt='classic room'
+              className='m-3 rounded-lg'
+            />
+            <img
+              src='https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=600'
+              alt='classic room'
+              className='m-3 rounded-lg'
+            />
+            <img
+              src='https://www.hemingways-collection.com/wp-content/uploads/2020/07/Home-Stay-Blixen-Suite.jpg?format=auto&width=2000'
+              alt='classic room'
+              className='m-3 rounded-lg'
+            />
+          </div>
+          <div className='mx-1 flex flex-row justify-around h-1/2 '>
+            <img
+              src='https://www.hemingways-collection.com/wp-content/uploads/2020/07/Blixen-living-and-dining.jpg?format=auto&width=2000'
+              alt='classic room'
+              className='m-3 rounded-lg'
+            />
+            <img
+              src='https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb&w=600'
+              alt='classic room'
+              className='m-3 rounded-lg'
+            />
+            <img
+              src='https://plus.unsplash.com/premium_photo-1661962495669-d72424626bdc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjByb29tc3xlbnwwfHwwfHx8MA%3D%3D'
+              alt='classic room'
+              className='m-3 rounded-lg'
+            />
+          </div>
+          <div></div>
+        </div>
       </div>
       <div className='dining_image'>
         <div className='dining_homepage'></div>
@@ -98,7 +137,6 @@ function HomePage() {
           </div>
         </div>
       </div>
-        
     </>
   )
 }
