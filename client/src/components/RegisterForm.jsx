@@ -44,25 +44,8 @@ const RegisterForm = () => {
     >
       {({ isSubmitting, errors, touched }) => (
         <Form>
-          <div>
-            <label>Username</label>
-            <Field name="username" type="text" />
-            {errors.username && touched.username ? <div>{errors.username}</div> : null}
-          </div>
 
-          <div>
-            <label>Email</label>
-            <Field name="email" type="email" />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
-          </div>
-
-          <div>
-            <label>Password</label>
-            <Field name="password" type="password" />
-            {errors.password && touched.password ? <div>{errors.password}</div> : null}
-          </div>
-
-          <div>
+         <div>
             <label>First Name</label>
             <Field name="first_name" type="text" />
             {errors.first_name && touched.first_name ? <div>{errors.first_name}</div> : null}
@@ -72,6 +55,24 @@ const RegisterForm = () => {
             <label>Last Name</label>
             <Field name="last_name" type="text" />
             {errors.last_name && touched.last_name ? <div>{errors.last_name}</div> : null}
+          </div>
+
+          <div>
+            <label>Email</label>
+            <Field name="email" type="email" />
+            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+          </div>
+
+          <div>
+            <label>Username</label>
+            <Field name="username" type="text" />
+            {errors.username && touched.username ? <div>{errors.username}</div> : null}
+          </div>
+
+          <div>
+            <label>Password</label>
+            <Field name="password" type="password" />
+            {errors.password && touched.password ? <div>{errors.password}</div> : null}
           </div>
 
           <button type="submit" disabled={isSubmitting}>
