@@ -9,7 +9,11 @@ const slides = [
   {url:"/113-1.jpg", title: "Spa"},
   {url:"/228.jpg", title: "Spa"},
   {url:"/250.jpg", title: "Spa"},
-  {url:"/74.jpg", title: "Spa"}
+  {url:"/spa1.jpg", title: "Spa"},
+  {url:"/spa2.jpg", title: "Spa"},
+  {url:"/spa3.jpg", title: "Spa"},
+  {url:"/spa4.jpg", title: "Spa"},
+  {url:"/spa5.jpg", title: "Spa"}
 ]
 
 const slideStyles = {
@@ -55,8 +59,16 @@ const slideStyles = {
         </div>
       </div>
 
+      <div className='swimming'>
+        <div>
+          <img src="../public/spa4.jpg" alt="" />
+          <h2>Take a Refreshing Dip at our Swimming School</h2>
+        </div>
+      </div>
+
       <div className='spa-slider'>
         <ImageSlider slides={slides} />
+        <h2>Services Offered with Spa Packages</h2>
       </div>
 
 

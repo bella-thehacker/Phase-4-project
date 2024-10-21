@@ -396,10 +396,24 @@ margin-left: 10%;
   padding-top: 2%;
 }
 
+#spa-packages-1 h2{
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
+}
+
 #spa-packages-2{
   width: 30rem;
   margin-top: 20%;
   margin-right: 10%;
+}
+
+#spa-packages-2 p{
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
 }
 
 #spa-packages-2 img{
@@ -410,4 +424,32 @@ margin-left: 10%;
 .spa-slider{
   margin-bottom: 5%;
   margin-top: 5%;
+}
+
+.spa-slider h2{
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
+  padding-top: 5%;
+  text-align: center;
+}
+
+.swimming{
+  margin-left: 5%;
+
+}
+
+.swimming img{
+  width: 45%;
+  height: 50%;
+}
+
+.swimming h2{
+  padding-top: 2%;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
+
 }
