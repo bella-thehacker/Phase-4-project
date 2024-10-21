@@ -11,11 +11,6 @@ import Contact from './components/Contact'
 import BookNow from './components/BookNow'
 
 
-
-
-
-
-
 function App() {
 
   return (
@@ -31,7 +26,6 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact uc" element={<Contact />} />
         <Route path="/book-now" element={<BookNow/>} />
-
         
       </Routes>
       

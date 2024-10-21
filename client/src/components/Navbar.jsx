@@ -58,8 +58,8 @@ function Navbar() {
             </NavLink>
           </div>
           <div className='book'>
-            <NavLink to='/book' className='btn'>
-              BOOK NOW
+            <NavLink to='/membership' className='btn'>
+              JOIN US
             </NavLink>
           </div>
         </div>
