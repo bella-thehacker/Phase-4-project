@@ -8,10 +8,8 @@ import Spa from './components/Spa'
 import Corporate from './components/Corporate'
 import Services from './components/Services'
 import Contact from './components/Contact'
-
-
-
-
+import Booknow from './components/Membership'
+import Membership from './components/Membership'
 
 function App() {
 
@@ -27,6 +25,7 @@ function App() {
         <Route path="/corporate" element={<Corporate />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact uc" element={<Contact />} />
+        <Route path="/membership" element={<Membership />} />
         
       </Routes>
       
