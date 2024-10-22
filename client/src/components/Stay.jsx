@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import 'aos/dist/aos.css'
+import AOS from 'aos'
 import '../css/Stay.css'
 import { RiSecurePaymentFill } from 'react-icons/ri'
 import { MdOutlinePriceCheck } from 'react-icons/md'
@@ -6,22 +8,49 @@ import { RiCustomerServiceFill } from 'react-icons/ri'
 import { FaShippingFast } from 'react-icons/fa'
 
 function Stay() {
+  useEffect(() => {
+    AOS.init({
+      duration:1000,
+      once: true,
+    })
+  
+
+  const revealLetters = () => {
+    const letters = document.querySelectorAll('.random-letter');
+    letters.forEach((letter, index) => {
+      setTimeout(() => {
+        letter.classList.add('visible');
+      }, Math.random() * 1000); // Random delay for each letter
+    });
+  };
+
+  revealLetters();
+  }, []);
+
+  // Function to wrap each letter in a span
+  const wrapWithSpans = (text) => {
+    return text.split('').map((char, index) => (
+      <span key={index} className="random-letter">{char}</span>
+    ));
+  };
+
+
   return (
     <div>
-      <div className='stay-top'>
+      <div className='stay-top' data-aos="fade-up">
         <img src='../public/vistaa2.png' alt='vista logo' />
         <div className='stay-top-inn'>
+         
           <h1>
-            <strong>Rooms and Suites</strong>
+            <i>
+              {wrapWithSpans("Rooms and Suites")} {/* Each letter will be wrapped with a span */}
+            </i>
           </h1>
           <h3>
             <i>
               Lofty, expansive rooms with vast, bright en-suite bathrooms and
               large private terraces are characteristic of the hotel’s wonderful
-              sense of space and use of natural light. There are 45
-              high-ceilinged suites, two of which are penthouse style
-              Presidential Suites and 43 Junior Suites culminating in vaulted
-              beams. Muted colors and textured fabrics in ecru and taupe create
+              sense of space and use of natural light. Muted colors and textured fabrics in ecru and taupe create
               an ambiance of contemporary-chic while subtle touches of brass,
               mahogany and leather bear reference to the classic elegance of
               vintage East African safaris Beyond the balustrade of your private
@@ -31,13 +60,13 @@ function Stay() {
         </div>
       </div>
 
-      <div className='classic-room'>
+      <div className='classic-room' data-aos="fade-up">
         <img
           src='https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=600'
           alt='classic room'
         />
 
-        <div id='classic-words'>
+        <div id='classic-words' data-aos="fade-left">
           <h3>
             <strong>Classic Room </strong>
           </h3>
@@ -54,13 +83,13 @@ function Stay() {
         </div>
       </div>
 
-      <div className='classic-room'>
+      <div className='classic-room' data-aos="fade-up">
         <img
           src='https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=600'
           alt='classic room'
         />
 
-        <div id='classic-words'>
+        <div id='classic-words' data-aos="fade-left">
           <h3>
             <strong>Premier Room </strong>
           </h3>
@@ -78,13 +107,13 @@ function Stay() {
         </div>
       </div>
 
-      <div className='classic-room'>
+      <div className='classic-room' data-aos="fade-up">
         <img
           src='https://www.hemingways-collection.com/wp-content/uploads/2020/07/Home-Stay-Blixen-Suite.jpg?format=auto&width=2000'
           alt='classic room'
         />
 
-        <div id='classic-words'>
+        <div id='classic-words' data-aos="fade-left">
           <h3>
             <strong>Grand Deluxe Room </strong>
           </h3>
@@ -101,12 +130,12 @@ function Stay() {
         </div>
       </div>
 
-      <div className='classic-room'>
+      <div className='classic-room' data-aos="fade-up">
         <img
           src='https://www.hemingways-collection.com/wp-content/uploads/2020/07/Blixen-living-and-dining.jpg?format=auto&width=2000'
           alt='classic room'
         />
-        <div id='classic-words'>
+        <div id='classic-words' data-aos="fade-left">
           <h3>
             <strong>Panoramic Suite </strong>
           </h3>
@@ -124,13 +153,13 @@ function Stay() {
         </div>
       </div>
 
-      <div className='classic-room'>
+      <div className='classic-room' data-aos="fade-up">
         <img
           src='https://images.pexels.com/photos/37347/office-sitting-room-executive-sitting.jpg?auto=compress&cs=tinysrgb&w=600'
           alt='classic room'
         />
 
-        <div id='classic-words'>
+        <div id='classic-words' data-aos="fade-left">
           <h3>
             <strong>Skyline Suite </strong>
           </h3>
@@ -148,13 +177,13 @@ function Stay() {
         </div>
       </div>
 
-      <div className='classic-room'>
+      <div className='classic-room' data-aos="fade-up">
         <img
           src='https://plus.unsplash.com/premium_photo-1661962495669-d72424626bdc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjByb29tc3xlbnwwfHwwfHx8MA%3D%3D'
           alt='classic room'
         />
 
-        <div id='classic-words'>
+        <div id='classic-words' data-aos="fade-left">
           <h3>
             <strong>Imperial Suite </strong>
           </h3>
@@ -172,13 +201,13 @@ function Stay() {
         </div>
       </div>
 
-      <div className='classic-room'>
+      <div className='classic-room' data-aos="fade-up">
         <img
           src='https://plus.unsplash.com/premium_photo-1664392414065-dc9a25c65e6b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cHJlc2lkZW50aWFsJTIwc3VpdGV8ZW58MHx8MHx8fDA%3D'
           alt='classic room'
         />
 
-        <div id='classic-words'>
+        <div id='classic-words' data-aos="fade-left">
           <h3>
             <strong>Presidential Suite </strong>
           </h3>
@@ -196,7 +225,7 @@ function Stay() {
         </div>
       </div>
 
-      <div className='stay-bottom'>
+      <div className='stay-bottom' data-aos="fade-up">
         <div className='bottom-words'>
           <h2> Your ideal Getaway is just a click away!</h2>
           <p>
