@@ -7,6 +7,7 @@ const BookNow = () => {
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [totalCost, setTotalCost] = useState(0);
 
+    // Fetch rooms when the component mounts
     useEffect(() => {
         const fetchRooms = async () => {
             try {
@@ -34,17 +35,29 @@ const BookNow = () => {
     const handleBooking = async (values, { setSubmitting }) => {
         setError('');
         try {
-            const response = await fetch('http://127.0.0.1:8040/rooms', {
+            const userId = localStorage.getItem('user_id'); // Get user ID from local storage
+            const bookingData = { 
+                user_id: userId, // Include user_id in the booking data
+                room_id: values.room_id,
+                start_date: values.start_date,
+                end_date: values.end_date,
+                total_cost: totalCost 
+            };
+
+            console.log('Booking data:', bookingData); // Log the payload
+
+            const response = await fetch('http://127.0.0.1:8040/bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify({ ...values, total_cost: totalCost }) // Include total cost in submission
+                body: JSON.stringify(bookingData)
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
+                console.error('Response from server:', errorData);
                 throw new Error(errorData.error || 'Error making booking.');
             }
 
@@ -90,7 +103,6 @@ const BookNow = () => {
                     room_id: '',
                     start_date: '',
                     end_date: '',
-                    total_cost: totalCost
                 }}
                 validate={values => {
                     const errors = {};
@@ -131,9 +143,10 @@ const BookNow = () => {
                         <label>
                             Start Date:
                             <Field type="date" name="start_date" onChange={e => {
-                                setFieldValue("start_date", e.target.value);
+                                const newStartDate = e.target.value;
+                                setFieldValue("start_date", newStartDate);
                                 if (selectedRoom) {
-                                    calculateTotalCost(selectedRoom.price_per_night, e.target.value, document.querySelector('input[name="end_date"]').value);
+                                    calculateTotalCost(selectedRoom.price_per_night, newStartDate, document.querySelector('input[name="end_date"]').value);
                                 }
                             }} />
                             <ErrorMessage name="start_date" component="div" style={{ color: 'red' }} />
@@ -142,9 +155,10 @@ const BookNow = () => {
                         <label>
                             End Date:
                             <Field type="date" name="end_date" onChange={e => {
-                                setFieldValue("end_date", e.target.value);
+                                const newEndDate = e.target.value;
+                                setFieldValue("end_date", newEndDate);
                                 if (selectedRoom) {
-                                    calculateTotalCost(selectedRoom.price_per_night, document.querySelector('input[name="start_date"]').value, e.target.value);
+                                    calculateTotalCost(selectedRoom.price_per_night, document.querySelector('input[name="start_date"]').value, newEndDate);
                                 }
                             }} />
                             <ErrorMessage name="end_date" component="div" style={{ color: 'red' }} />
