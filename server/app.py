@@ -205,7 +205,7 @@ def create_review():
     hotel_id = data.get('hotel_id')
     rating = data.get('rating')
     comment = data.get('comment')
-    created_at = data.get('created_at')
+    created_at = datetime.fromisoformat(data['created_at'].replace('Z', '+00:00'))
 
     # Validate received data
     if user_id is None:
