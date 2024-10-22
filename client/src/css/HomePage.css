@@ -45,7 +45,7 @@ video {
   margin-top: 25px;
   font-size: 1.5rem;
   color: white;
-  background-color: rgb(129, 112, 79);
+  background-color: #81704f;
   border-radius: 10px;
   padding: 7px;
   width: 150px;
@@ -58,10 +58,10 @@ video {
 .video-content-bottom {
   background-color: rgba(0, 0, 0, 0.356);
   width: 100%;
-  height: 1150px;
+  height: 1120px;
   position: absolute;
   z-index: 2;
-  margin-top: 7px;
+  margin-top: 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -93,6 +93,7 @@ video {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
+  margin-bottom: 0px;
 }
 
 .dining_homepage_inner {
@@ -191,14 +192,14 @@ video {
 
 .stay_homepage .stay_imgs img {
   width: 400px;
-  height: auto;
-  animation: scale-up 0.7s forwards;
+  height: 300px;
+  animation: scale-down 0.5s forwards;
   border: 0.2rem solid black;
   box-shadow: 10px 10px 10px #3f3f46;
 }
 
 .stay_homepage .stay_imgs img:hover {
-  animation: scale-down 0.5s forwards;
+  animation: scale-up 0.8s forwards;
 }
 
 @keyframes scale-up {

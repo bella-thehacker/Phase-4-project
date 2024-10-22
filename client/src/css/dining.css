@@ -1,0 +1,29 @@
+.main-dining .dining-bottom img{
+    animation: scale-down 0.5s forwards;
+    border-radius: 10px;
+    border: 0.4rem solid #3f3f46;
+}
+
+.main-dining .dining-bottom img:hover {
+  animation: scale-up 0.8s forwards;
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-down {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.9);
+  }
+}
