@@ -19,10 +19,14 @@
 }
 
 .stay-top h3{
-  width: 30rem;
-  margin-left: -8%;
-  font-size: 120%;
+  width: 40rem;
+  margin-left: -11%;
+  font-size:140%;
   letter-spacing: 1px;
+  font-family: "Markazi Text", serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
 }
 
 .stay-top img{
@@ -31,17 +35,24 @@
 }
 
 .stay-top h1{
-  font-size: 200%;
+  font-size: 250%;
   font-weight: 500;
   font-family: "IBM Plex Serif", serif;
-  
+  margin-bottom: 2%;
   font-style: italic;
 
 }
 
-.stay-top h3{
-  font-size: 90%;
 
+
+.random-letter {
+  opacity: 0;
+  display: inline-block;
+  transition: opacity 0.3s ease;
+}
+
+.random-letter.visible {
+  opacity: 1;
 }
 
 .classic-room{
@@ -380,6 +391,19 @@ justify-content: center;
   width: 30rem;
 }
 
+/* Add this CSS to your styles */
+.image-container {
+  opacity: 0; /* Start invisible */
+  transform: translateY(50px); /* Start below its position */
+  transition: opacity 0.9s ease, transform 0.9s ease; /* Smooth transition */
+}
+
+.image-container.visible {
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Move to original position */
+}
+
+
 #spa-packages{
   display: flex;
   justify-content: space-around;
@@ -396,10 +420,24 @@ margin-left: 10%;
   padding-top: 2%;
 }
 
+#spa-packages-1 h2{
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
+}
+
 #spa-packages-2{
   width: 30rem;
   margin-top: 20%;
   margin-right: 10%;
+}
+
+#spa-packages-2 p{
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
 }
 
 #spa-packages-2 img{
@@ -410,4 +448,32 @@ margin-left: 10%;
 .spa-slider{
   margin-bottom: 5%;
   margin-top: 5%;
+}
+
+.spa-slider h2{
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
+  padding-top: 5%;
+  text-align: center;
+}
+
+.swimming{
+  margin-left: 5%;
+
+}
+
+.swimming img{
+  width: 45%;
+  height: 50%;
+}
+
+.swimming h2{
+  padding-top: 2%;
+  font-family: "IBM Plex Serif", serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 150%;
+
 }

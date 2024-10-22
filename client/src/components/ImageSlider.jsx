@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function ImageSlider({ slides }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const sliderStyles = {
     position: "relative", // Keep relative positioning
-    width: "50vw",        // Half the screen width
-    height: "50vh",       // Half the screen height
+    width: "70vw",        // Half the screen width
+    height: "70vh",       // Half the screen height
     margin: "0 auto",     // Center the slider horizontally
   };
 
@@ -60,6 +60,13 @@ function ImageSlider({ slides }) {
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext()
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [currentIndex])
 
   const imageStyles = {
     width: "100%",         // Full width within the slider container
