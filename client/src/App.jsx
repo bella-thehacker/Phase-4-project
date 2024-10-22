@@ -9,6 +9,7 @@ import Corporate from './components/Corporate'
 import Contact from './components/Contact'
 import BookNow from './components/BookNow'
 import Membership from './components/Membership'
+import Footer from './components/Footer'
 
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
         <Route path="/book-now" element={<BookNow/>} />
         <Route path="/membership" element={<Membership />} />
       </Routes>
+
+    <div>
+      <Footer />
+    </div>
       
     </>
   )
