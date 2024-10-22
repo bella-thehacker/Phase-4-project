@@ -27,6 +27,7 @@ function App() {
         <Route path="/contact uc" element={<Contact />} />
         <Route path="/book-now" element={<BookNow/>} />
         <Route path="/membership" element={<Membership />} />
+
       </Routes>
 
     <div>
