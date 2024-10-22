@@ -3,6 +3,7 @@ from flask_migrate import Migrate
 from models import *
 from flask_jwt_extended import *
 from flask_cors import CORS
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///hotel.db"
@@ -10,7 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 db.init_app(app)
-CORS(app)
+CORS(app, origins=["http://localhost:5174"])
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
 blocklist = set()
@@ -20,6 +21,9 @@ def index():
     return "Vista Hotel Database"
 
 # ------------------- Auth Routes -------------------
+from flask import jsonify
+from flask_jwt_extended import create_access_token
+
 @app.route('/login', methods=['POST'])
 def login():
     data = request.json
@@ -33,7 +37,10 @@ def login():
 
     # Create JWT token
     access_token = create_access_token(identity=user.id)
-    return jsonify(access_token=access_token), 200
+
+    # Return both the access token and the user ID
+    return jsonify(access_token=access_token, user_id=user.id), 200
+
 
 @app.route('/logout', methods=['POST'])
 @jwt_required()
@@ -191,16 +198,43 @@ def get_review(id):
 @app.route('/reviews', methods=['POST'])
 @jwt_required()
 def create_review():
-    data = request.json
+    data = request.get_json()
+    print("Received data:", data)  # Log received data
+    
+    user_id = data.get('user_id')
+    hotel_id = data.get('hotel_id')
+    rating = data.get('rating')
+    comment = data.get('comment')
+    created_at = data.get('created_at')
+
+    # Validate received data
+    if user_id is None:
+        return jsonify({'error': 'User ID is required'}), 422
+    if hotel_id is None:
+        return jsonify({'error': 'Hotel ID is required'}), 422
+    if rating is None or not isinstance(rating, int) or not (1 <= rating <= 5):
+        return jsonify({'error': 'Rating must be an integer between 1 and 5'}), 422
+    if comment is None or len(comment) < 10:
+        return jsonify({'error': 'Comment must be at least 10 characters long'}), 422
+    # Optionally parse and validate created_at if needed
+
+    # Proceed to create the review
     new_review = Review(
-        user_id=data.get('user_id'),
-        hotel_id=data.get('hotel_id'),
-        rating=data.get('rating'),
-        comment=data.get('comment')
+        user_id=user_id,
+        hotel_id=hotel_id,
+        rating=rating,
+        comment=comment,
+        created_at=datetime.utcnow() if created_at is None else created_at,
     )
-    db.session.add(new_review)
-    db.session.commit()
-    return jsonify(new_review.to_dict()), 201
+
+    try:
+        db.session.add(new_review)
+        db.session.commit()
+        return jsonify(new_review.to_dict()), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
 
 @app.route('/reviews/<int:id>', methods=['PATCH'])
 @jwt_required()
@@ -256,17 +290,41 @@ def get_booking(id):
 @jwt_required()
 def create_booking():
     data = request.json
-    new_booking = Booking(
-        user_id=data.get('user_id'),
-        room_id=data.get('room_id'),
-        start_date=data.get('start_date'),
-        end_date=data.get('end_date'),
-        total_cost=data.get('total_cost')
-    )
-    db.session.add(new_booking)
-    db.session.commit()
-    return jsonify(new_booking.to_dict()), 201
 
+    # Validate required fields
+    user_id = data.get('user_id')
+    room_id = data.get('room_id')
+    start_date_str = data.get('start_date')
+    end_date_str = data.get('end_date')
+    total_cost = data.get('total_cost')
+
+    if user_id is None or room_id is None or start_date_str is None or end_date_str is None or total_cost is None:
+        return jsonify({'error': 'Missing required fields'}), 422
+
+    try:
+        # Convert date strings to datetime objects
+        start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
+        end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
+
+        # Create a new booking object
+        new_booking = Booking(
+            user_id=user_id,
+            room_id=room_id,
+            start_date=start_date,
+            end_date=end_date,
+            total_cost=total_cost
+        )
+
+        # Add to session and commit
+        db.session.add(new_booking)
+        db.session.commit()
+        return jsonify(new_booking.to_dict()), 201
+
+    except ValueError:
+        return jsonify({'error': 'Invalid date format, should be YYYY-MM-DD'}), 422
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
 @app.route('/bookings/<int:id>', methods=['PATCH'])
 def update_booking(id):
     booking = Booking.query.get(id)

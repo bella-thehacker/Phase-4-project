@@ -4,11 +4,14 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 const BookNow = () => {
     const [rooms, setRooms] = useState([]);
     const [error, setError] = useState('');
+    const [selectedRoom, setSelectedRoom] = useState(null);
+    const [totalCost, setTotalCost] = useState(0);
 
+    // Fetch rooms when the component mounts
     useEffect(() => {
         const fetchRooms = async () => {
             try {
-                const response = await fetch(' http://127.0.0.1:8040/rooms', {
+                const response = await fetch('http://127.0.0.1:8040/rooms', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -32,17 +35,29 @@ const BookNow = () => {
     const handleBooking = async (values, { setSubmitting }) => {
         setError('');
         try {
-            const response = await fetch(' http://127.0.0.1:8040/rooms', {
+            const userId = localStorage.getItem('user_id'); // Get user ID from local storage
+            const bookingData = { 
+                user_id: userId, // Include user_id in the booking data
+                room_id: values.room_id,
+                start_date: values.start_date,
+                end_date: values.end_date,
+                total_cost: totalCost 
+            };
+
+            console.log('Booking data:', bookingData); // Log the payload
+
+            const response = await fetch('http://127.0.0.1:8040/bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify(values)
+                body: JSON.stringify(bookingData)
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
+                console.error('Response from server:', errorData);
                 throw new Error(errorData.error || 'Error making booking.');
             }
 
@@ -57,6 +72,28 @@ const BookNow = () => {
         }
     };
 
+    const handleRoomChange = (roomId) => {
+        const room = rooms.find(room => room.id === parseInt(roomId));
+        setSelectedRoom(room);
+        if (room) {
+            setTotalCost(0); // Reset total cost when room changes
+        } else {
+            setTotalCost(0);
+        }
+    };
+
+    const calculateTotalCost = (pricePerNight, startDate, endDate) => {
+        if (startDate && endDate) {
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const nights = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+            const cost = nights > 0 ? pricePerNight * nights : 0;
+            setTotalCost(cost);
+        } else {
+            setTotalCost(0);
+        }
+    };
+
     return (
         <div>
             <h2>Book Now</h2>
@@ -66,7 +103,6 @@ const BookNow = () => {
                     room_id: '',
                     start_date: '',
                     end_date: '',
-                    total_cost: 0
                 }}
                 validate={values => {
                     const errors = {};
@@ -79,18 +115,21 @@ const BookNow = () => {
                     if (!values.end_date) {
                         errors.end_date = 'Required';
                     }
-                    if (!values.total_cost || values.total_cost <= 0) {
+                    if (totalCost <= 0) {
                         errors.total_cost = 'Must be greater than 0';
                     }
                     return errors;
                 }}
                 onSubmit={handleBooking}
             >
-                {({ isSubmitting }) => (
+                {({ isSubmitting, setFieldValue }) => (
                     <Form>
                         <label>
                             Room:
-                            <Field as="select" name="room_id">
+                            <Field as="select" name="room_id" onChange={e => {
+                                handleRoomChange(e.target.value);
+                                setFieldValue("room_id", e.target.value); // Update Formik value
+                            }}>
                                 <option value="">Select a room</option>
                                 {rooms.map(room => (
                                     <option key={room.id} value={room.id}>
@@ -103,20 +142,30 @@ const BookNow = () => {
                         <br />
                         <label>
                             Start Date:
-                            <Field type="date" name="start_date" />
+                            <Field type="date" name="start_date" onChange={e => {
+                                const newStartDate = e.target.value;
+                                setFieldValue("start_date", newStartDate);
+                                if (selectedRoom) {
+                                    calculateTotalCost(selectedRoom.price_per_night, newStartDate, document.querySelector('input[name="end_date"]').value);
+                                }
+                            }} />
                             <ErrorMessage name="start_date" component="div" style={{ color: 'red' }} />
                         </label>
                         <br />
                         <label>
                             End Date:
-                            <Field type="date" name="end_date" />
+                            <Field type="date" name="end_date" onChange={e => {
+                                const newEndDate = e.target.value;
+                                setFieldValue("end_date", newEndDate);
+                                if (selectedRoom) {
+                                    calculateTotalCost(selectedRoom.price_per_night, document.querySelector('input[name="start_date"]').value, newEndDate);
+                                }
+                            }} />
                             <ErrorMessage name="end_date" component="div" style={{ color: 'red' }} />
                         </label>
                         <br />
                         <label>
-                            Total Cost:
-                            <Field type="number" name="total_cost" />
-                            <ErrorMessage name="total_cost" component="div" style={{ color: 'red' }} />
+                            Total Cost: ${totalCost.toFixed(2)} {/* Display total cost */}
                         </label>
                         <br />
                         <button type="submit" disabled={isSubmitting}>
