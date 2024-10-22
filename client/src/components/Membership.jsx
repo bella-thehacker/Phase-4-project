@@ -8,6 +8,7 @@ const Membership = () => {
 
   return (
     <div className="membership-container">
+      
       <div className="auth-toggle">
         <button onClick={() => setShowLogin(true)} className={showLogin ? 'active' : ''}>
           Login

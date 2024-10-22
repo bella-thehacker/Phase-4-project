@@ -45,6 +45,10 @@ const RegisterForm = () => {
       {({ isSubmitting, errors, touched }) => (
         <Form>
 
+          <div className='signup-words'>
+            <h2>Welcome !</h2>
+          </div>
+
          <div>
             <label>First Name</label>
             <Field name="first_name" type="text" />
