@@ -216,7 +216,7 @@ AOS.init()
           <h2>Peacock Bar & Lounge</h2>
           <p>
             An eclectic and eccentric space inspired by the 1920s oriental
-            aesthetic and the exotic and vibrant colours of the peacock, serving
+            aesthetic and the exotic and vibrant colors of the peacock, serving
             contemporary pan-Asian cuisine. A place that exudes the luxurious
             essence of Glee for relaxed good times, intimate drinks and mellow
             evenings to acoustic jazz music.

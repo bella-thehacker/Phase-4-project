@@ -1,7 +1,13 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "aos": "^2.3.4",
+=======
+    "formik": "^2.4.6",
+    "formlink": "^1.2.0",
+>>>>>>> 6f7530f37eef70551063c277fedff53174fb1935
     "react-router-dom": "^6.27.0",
-    "react-simple-typewriter": "^5.0.1"
+    "react-simple-typewriter": "^5.0.1",
+    "yup": "^1.4.0"
   }
 }
