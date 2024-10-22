@@ -37,6 +37,11 @@ const Corporate = () => {
 
       <section className="corporate-facilities">
         <h2>Sophisticated, Impressive & Efficient</h2>
+        <img
+          src="https://www.ohotelsindia.com/pune/images/e31820ce40976ba093b72ac129c9d4b9.jpg"
+          alt="Corporate Environment"
+          className="description-image"
+        />
         <p>
           We offer a variety of corporate facilities from intimate meeting rooms
           to larger conference suites. Our experienced staff are on hand to
@@ -45,31 +50,55 @@ const Corporate = () => {
         </p>
         <div className="rooms">
           <div className="room">
-            <img
-              src="https://www.hemingways-collection.com/wp-content/uploads/2020/08/HN-2020-89.1.jpg?format=auto&width=400&height=400"
-              alt="Greenhills Room"
-              className="room-image"
-            />
-            <h3>Greenhills</h3>
-            <p>172 square meters, 70 delegates (max)</p>
-            <button>View floorplan</button>
+            <div className="room-image-container">
+              <img
+                src="https://www.hemingways-collection.com/wp-content/uploads/2020/08/HN-2020-89.1.jpg?format=auto&width=400&height=400"
+                alt="Greenhills Room"
+                className="room-image"
+              />
+              <div className="room-text">
+                <h3>Greenhills</h3>
+                <p>172 square meters, 70 delegates (max)</p>
+                <button>View floorplan</button>
+              </div>
+            </div>
           </div>
           <div className="room">
+            <img
+              src="https://www.hemingways-collection.com/wp-content/uploads/2020/08/HN-2020-82.1.jpg?format=auto&width=400&height=400"
+              alt="Havana Room"
+              className="room-image"
+            />
             <h3>Havana</h3>
             <p>136 square meters, 60 delegates (max)</p>
             <button>View floorplan</button>
           </div>
           <div className="room">
+            <img
+              src="https://www.hemingways-collection.com/wp-content/uploads/2020/08/HN-2020-86.1.jpg?format=auto&width=400&height=400"
+              alt="Board Room"
+              className="room-image"
+            />
             <h3>Board Room</h3>
             <p>48 square meters, 15 delegates (max)</p>
             <button>Make an enquiry</button>
           </div>
           <div className="room">
+            <img
+              src="https://www.hemingways-collection.com/wp-content/uploads/2020/08/HN-2020-84.1.jpg?format=auto&width=400&height=400"
+              alt="Bimini Room"
+              className="room-image"
+            />
             <h3>Bimini</h3>
             <p>24 square meters, 8 delegates (max)</p>
             <button>Make an enquiry</button>
           </div>
           <div className="room">
+            <img
+              src="https://www.hemingways-collection.com/wp-content/uploads/2020/08/HN-2020-85.1.jpg?format=auto&width=400&height=400"
+              alt="Pilar Room"
+              className="room-image"
+            />
             <h3>Pilar</h3>
             <p>20 square meters, 6 delegates (max)</p>
             <button>Make an enquiry</button>

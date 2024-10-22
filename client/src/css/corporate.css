@@ -1,3 +1,4 @@
+/* General container styles */
 .corporate-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -7,35 +8,81 @@
 
 .corporate-header {
   text-align: center;
-  margin-bottom: 40px;
 }
 
-.corporate-description, .corporate-facilities, .conference-packages, .contact-info {
-  margin-bottom: 40px;
+.corporate-description {
+  margin: 80px 0;
+}
+
+.corporate-facilities {
+  margin: 5px ;
+  padding: 20px; 
+   border-radius: 8px;  
 }
 
 .rooms {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: space-between;
 }
 
+/* Styling individual room containers */
 .room {
-  border: 1px solid #ccc;
-  padding: 15px;
-  border-radius: 8px;
-  width: calc(20% - 20px);
-  text-align: center;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border: 1px solid #ddd;    /* Subtle border */
+  border-radius: 8px;        /* Rounded corners */
+  margin: 20px;              /* Increased margin */
+  padding: 20px;
+  width: calc(20% - 40px);   /* Adjust width for responsive design */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  text-align: center;        /* Centering text */
+  transition: transform 0.2s; /* Smooth scaling on hover */
 }
 
-.package {
-  margin-bottom: 20px;
+.room:hover {
+  transform: scale(1.05);    /* Scale effect on hover */
 }
 
-.package h3, .package h4 {
-  margin: 10px 0;
+/* Styling images */
+.room-image {
+  width: 100%;               /* Full width for responsiveness */
+  height: auto;              /* Maintain aspect ratio */
+  border-radius: 8px;        /* Rounded corners for images */
+  max-height: 400px;         /* Increased max height for larger images */
 }
 
-.contact-info {
-  text-align: center;
+/* Button styles */
+button {
+  background-color: #8B4513; /* Brown color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;        /* Increased padding for larger buttons */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #6F4C3E; /* Darker brown on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .room {
+    width: calc(50% - 40px); /* Two columns on smaller screens */
+  }
+
+  .room-image {
+    max-height: 250px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .room {
+    width: 100%; /* Full width on very small screens */
+  }
+
+  .room-image {
+    max-height: 200px; /* Further adjust height for very small screens */
+  }
 }
