@@ -1,0 +1,211 @@
+nav {
+  width: 100%;
+  height: 10vh;
+  background-color: #3f3f46;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.navbar_buttons {
+  margin-right: 2rem;
+}
+
+.navbar_buttons .btn {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 1.3rem;
+  position: relative;
+  opacity: 0.9;
+}
+
+.navbar_buttons .btn:hover {
+  opacity: 1;
+}
+
+.navbar_buttons .btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0.2rem;
+  background-color: #ffffff;
+  transition: all 0.45s;
+}
+
+.navbar_buttons .btn:hover::before {
+  width: 100%;
+}
+
+.navbar_buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar_buttons .book {
+  background-color: rgb(129, 112, 79);
+  border-radius: 10px;
+  height: 45px;
+  width: 220px;
+  padding: 1px;
+  margin-left: 10px;
+}
+/*Formating the navbar and the burger menu*/
+
+.navigation_bar {
+  width: 20%;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+}
+img {
+  width: 4.5rem;
+}
+
+.line {
+  width: 0.2rem;
+  height: 4.8rem;
+  background-color: white;
+  border-radius: 1rem;
+  margin-left: 20%;
+}
+
+.logo {
+  margin-right: 10%;
+  margin-left: 10%;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  margin-top: 0;
+  /* background-color: #55ff21; */
+  background-image: url(/public/vistaa2.png);
+}
+.burger_menu {
+  height: 4.6rem;
+  width: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.burger-bar {
+  width: 3.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.menu {
+  width: 350px;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  margin-top: 100px;
+  background-color: #3f3f46;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.menus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menus .btn{
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+/*Burger images formating*/
+.burger_image1 {
+  background-image: url(/monaco.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 25%;
+  height: 100vh;
+}
+
+.burger_image2 {
+  background-image: url(/images.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 25%;
+  height: 100vh;
+}
+
+.burger_image3 {
+  background-image: url(/pool.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 25%;
+  height: 100vh;
+}
+
+.burger_image4 {
+  background-image: url(/safari.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 25%;
+  height: 100vh;
+}
+.hidden {
+  display: none;
+}
+
+/* helooooooooooo */
+
+.visible {
+  display: inherit;
+}
+
+/*Transition when clicked*/
+.burger-bar.clicked:nth-child(1) {
+  transform: rotate(45deg) translate(0.5rem, 1rem);
+  transition: ease-out 0.5s;
+}
+
+.burger-bar.clicked:nth-child(2) {
+  transform: scale(0.1);
+  transition: ease-out 0.5s;
+}
+
+.burger-bar.clicked:nth-child(3) {
+  transform: rotate(135deg) translate(-0.5rem, 1rem);
+  transition: ease-out 0.5s;
+}
+
+/*Transition when unclicked*/
+.burger-bar.unclicked:nth-child(1) {
+  transform: rotate(0deg) translate(0rem, 0rem);
+  transition: ease-out 0.5s;
+}
+
+.burger-bar.unclicked:nth-child(2) {
+  transform: rotate(0deg) translate(0rem, 0rem);
+  transition: ease-out 0.5s;
+}
+
+.burger-bar.unclicked:nth-child(3) {
+  transform: rotate(0deg) translate(0rem, 0rem);
+  transition: ease-out 0.5s;
+}
+
+@media (max-width: 1050px) {
+  nav {
+    display: none;
+  }
+}

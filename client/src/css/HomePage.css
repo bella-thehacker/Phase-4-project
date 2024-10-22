@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Prociono&display=swap');
+
+.main {
+  width: 100%;
+  height: 100vh;
+}
+
+video {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 1240px;
+  margin-bottom: 0;
+}
+
+.video-content-top {
+  position: absolute;
+  width: 100%;
+  height: 130px;
+  background-color: rgba(0, 0, 0, 0.356);
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.video-content-top img {
+  height: 80%;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.video-content-top p {
+  margin: 15px;
+  color: wheat;
+  font-size: 2rem;
+}
+
+.video-content-top .book {
+  margin-right: 25px;
+  margin-top: 25px;
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(129, 112, 79);
+  border-radius: 10px;
+  padding: 7px;
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  font-family: 'Prociono', serif;
+  font-weight: 600;
+}
+
+.video-content-bottom {
+  background-color: rgba(0, 0, 0, 0.356);
+  width: 100%;
+  height: 1150px;
+  position: absolute;
+  z-index: 2;
+  margin-top: 7px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+}
+
+.video-content-bottom h1 {
+  font-size: 6rem;
+  font-family: 'IBM Plex Serif', serif;
+  margin-top: 620px;
+  color: #ffffff;
+}
+.dining_homepage {
+  height: 90vh;
+  width: 100%;
+  background-image: url(/public/dining.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  z-index: -1;
+}
+
+.dining_image {
+  background-color: rgba(0, 0, 0, 0.445);
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.dining_homepage_inner {
+  margin: 160px;
+  height: 400px;
+  width: 1000px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  flex-direction: column;
+  z-index: 1;
+  position: absolute;
+}
+
+.dining_homepage_inner p {
+  font-size: 4rem;
+  font-family: 'Prociono', serif;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 500;
+  color: white;
+}
+
+.dining_homepage_inner h1 {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 6rem;
+  margin-bottom: 4rem;
+  font-weight: 800;
+  color: white;
+}
+
+.view_more {
+  color: white;
+  font-size: 1.7rem;
+  margin-top: 50px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.view_more:hover {
+  opacity: 1;
+}
+
+.view_more::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0.13rem;
+  background-color: #ffffff;
+  transition: all 0.45s;
+}
+
+.view_more:hover::before {
+  width: 18%;
+}
+
+.view_more2 {
+  color: white;
+  font-size: 1.7rem;
+  margin-top: 50px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.stay_homepage {
+  height: 110vh;
+  width: 100%;
+  background-color: rgb(236, 236, 236);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 20px;
+}
+
+.stay_homepage h1 {
+  font-size: 4rem;
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 700;
+}
+.stay_homepage p {
+  font-family: 'Prociono', serif;
+  font-size: 2rem;
+}
+
+.stay_homepage .stay_imgs {
+  margin-top: 30px;
+  border-radius: 20px;
+  width: 80%;
+  height: 55%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.stay_homepage .stay_imgs img {
+  width: 400px;
+  height: auto;
+  animation: scale-up 0.7s forwards;
+  border: 0.2rem solid black;
+  box-shadow: 10px 10px 10px #3f3f46;
+}
+
+.stay_homepage .stay_imgs img:hover {
+  animation: scale-down 0.5s forwards;
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-down {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.9);
+  }
+}
+.video_homepage img {
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
