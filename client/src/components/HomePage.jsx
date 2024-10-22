@@ -38,9 +38,9 @@ function HomePage() {
               <NavLink to='/corporate' className='btn'>
                 - CORPORATE -
               </NavLink>
-              <NavLink to='/services' className='btn'>
-                - SERVICES -
-              </NavLink>
+              <NavLink to='/membership' className='btn'>
+              - MEMBERSHIP -
+            </NavLink>
               <NavLink to='/contact' className='btn'>
                 - CONTACT US -
               </NavLink>
