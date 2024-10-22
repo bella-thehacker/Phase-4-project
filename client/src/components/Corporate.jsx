@@ -4,6 +4,11 @@ const Corporate = () => {
   return (
     <div className="corporate-container">
       <header className="corporate-header">
+        <img
+          src="https://programs.seminaire.com/uploads/medium_seminaire_hotel_hipotels_gran_playa_de_palma_galeria_granplayadepalma1193_jpg_225d193051c64238cc88f6ac3f31ce23_29224ec4df.webp"
+          alt="Corporate Facilities"
+          className="vista"
+        />
         <h1>Corporate Facilities</h1>
         <p>
           Explore professionally organized and efficiently planned events and
@@ -13,6 +18,11 @@ const Corporate = () => {
 
       <section className="corporate-description">
         <h2>Removed from the hustle and bustle</h2>
+        <img
+          src="https://cdn.independentcollection.com.au/wp-content/uploads/sites/139/2018/11/16155046/2090-Victoria-Hotel-20210514.jpg"
+          alt="Corporate Environment"
+          className="description-image"
+        />
         <p>
           Our corporate facilities offer the coveted combination of privacy and
           proximity to Nairobi’s Central Business District. Equipped with the
@@ -35,6 +45,11 @@ const Corporate = () => {
         </p>
         <div className="rooms">
           <div className="room">
+            <img
+              src="https://www.hemingways-collection.com/wp-content/uploads/2020/08/HN-2020-89.1.jpg?format=auto&width=400&height=400"
+              alt="Greenhills Room"
+              className="room-image"
+            />
             <h3>Greenhills</h3>
             <p>172 square meters, 70 delegates (max)</p>
             <button>View floorplan</button>
