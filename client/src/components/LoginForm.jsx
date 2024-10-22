@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 const LoginSchema = Yup.object().shape({
   username: Yup.string().required('Username is required'),
-  password: Yup.string().required('Password is required')
+  password: Yup.string().required('Password is required'),
 });
 
 const LoginForm = () => {
@@ -12,7 +12,7 @@ const LoginForm = () => {
     <Formik
       initialValues={{ username: '', password: '' }}
       validationSchema={LoginSchema}
-      onSubmit={(values) => {
+      onSubmit={(values, { setSubmitting, setErrors }) => {
         // Submit to backend
         fetch('http://127.0.0.1:8040/login', {
           method: 'POST',
@@ -21,8 +21,25 @@ const LoginForm = () => {
           },
           body: JSON.stringify(values),
         })
-          .then((response) => response.json())
-          .then((data) => console.log('Logged in:', data));
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Login failed. Please check your credentials.'); // Handle login failure
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log('Logged in:', data);
+            localStorage.setItem('token', data.access_token); // Save token in local storage
+            localStorage.setItem('user_id', data.user_id); // Save user ID in local storage
+            alert('Login successful!'); // Inform user of successful login
+          })
+          .catch((error) => {
+            console.error('Login error:', error);
+            setErrors({ username: 'Login failed. Please try again.' }); // Set form error state
+          })
+          .finally(() => {
+            setSubmitting(false); // Always set submitting to false
+          });
       }}
     >
       {({ errors, touched }) => (
