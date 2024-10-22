@@ -1,5 +1,10 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { MdRestaurantMenu } from "react-icons/md";
+import 'aos/dist/aos.css'
+import AOS from "aos";
+import Typed from 'typed.js'
+
+
 
 function Dining() {
   const glowRef = useRef(null);
@@ -8,6 +13,27 @@ function Dining() {
   const rubyRef = useRef(null);
   const cascadeRef = useRef(null);
   const peacockRef = useRef(null);
+  const typedRef = useRef(null)
+
+  useEffect(() => {
+AOS.init()
+
+    const options = {
+      strings: ["Savour Dishes for Every Appetite"],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true,
+      showCursor: false,
+    };
+
+    
+    const typed = new Typed(typedRef.current, options);
+
+    
+    return () => {
+      typed.destroy();
+    };
+  }, []);
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
@@ -21,12 +47,12 @@ function Dining() {
           alt="dining"
         />
         <div className="dining-top-text">
-          <h1>Savour Dishes for every Appetite</h1>
+          <h1 ref={typedRef}></h1>
           <h3>At Vista Hotels</h3>
         </div>
       </div>
 
-      <div className="dining-body">
+      <div className="dining-body" data-aos="fade-up">
         <img
           src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/17210489325494_glow.png"
           onClick={() => scrollToSection(glowRef)}
@@ -53,9 +79,9 @@ function Dining() {
         />
       </div>
 
-      <div ref={glowRef} id="glow-hotel">
+      <div ref={glowRef} id="glow-hotel" data-aos="fade-up">
         <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/1200x900/17080704143461_gleehotelglowrestaurantbuffet.jpg" />
-        <div id="glow-hotel-words">
+        <div id="glow-hotel-words" data-aos="fade-left">
           <h2>Glow Restaurant</h2>
           <p>
             A bright modern Parisian style all-day dining restaurant serving
@@ -77,8 +103,8 @@ function Dining() {
         </div>
       </div>
 
-      <div ref={horizonRef} id="horizon-hotel">
-        <div id="horizon-hotel-words">
+      <div ref={horizonRef} id="horizon-hotel" data-aos="fade-up">
+        <div id="horizon-hotel-words" data-aos="fade-right">
           <h2>Horizon Rooftop Bar</h2>
           <p>
             The rooftop bar and terrace on the 7th floor is a relaxed and hip
@@ -105,9 +131,9 @@ function Dining() {
         <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/1200x900/17047916558436_gleehotelrooftopbar.jpg" />
       </div>
 
-      <div ref={hideRef} id="glow-hotel">
+      <div ref={hideRef} id="glow-hotel" data-aos="fade-up">
         <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/952x721/17047916576878_gleehotelthehidesteakhouse.jpg" />
-        <div id="glow-hotel-words">
+        <div id="glow-hotel-words" data-aos="fade-left">
           <h2> The Hide SteakHouse</h2>
           <p>
             Fine dining grill and steakhouse and a private dining room with
@@ -131,8 +157,8 @@ function Dining() {
         </div>
       </div>
 
-      <div ref={rubyRef} id="horizon-hotel">
-        <div id="horizon-hotel-words">
+      <div ref={rubyRef} id="horizon-hotel" data-aos="fade-up">
+        <div id="horizon-hotel-words" data-aos="fade-right">
           <h2>Ruby NightClub</h2>
           <p>
             A place to feel the beating heart of Nairobi, Ruby is a nightclub
@@ -158,9 +184,9 @@ function Dining() {
         <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/952x721/1704791656798_gleehotelrubynightclub.jpg" />
       </div>
 
-      <div ref={cascadeRef} id="glow-hotel">
+      <div ref={cascadeRef} id="glow-hotel" data-aos="fade-up">
         <img src="https://profitroom-uploads.fra1.digitaloceanspaces.com/thegleehotel/1200x900/17047916602997_gleehotelcascadecafe.jpg" />
-        <div id="glow-hotel-words">
+        <div id="glow-hotel-words" data-aos="fade-left">
           <h2>Cascade Café</h2>
           <p>
             An all-day café and terrace, Cascade is a place to enjoy curated
@@ -185,8 +211,8 @@ function Dining() {
         </div>
       </div>
 
-      <div ref={peacockRef} id="horizon-hotel">
-        <div id="horizon-hotel-words">
+      <div ref={peacockRef} id="horizon-hotel" data-aos="fade-up">
+        <div id="horizon-hotel-words" data-aos="fade-right">
           <h2>Peacock Bar & Lounge</h2>
           <p>
             An eclectic and eccentric space inspired by the 1920s oriental

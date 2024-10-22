@@ -1,8 +1,43 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ImageSlider from './ImageSlider';
+import 'aos/dist/aos.css'
+import AOS from 'aos'
+
 
 
 function Spa() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
+    const imageContainers = document.querySelectorAll('.image-container');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); 
+        }
+      });
+    });
+
+    imageContainers.forEach((container) => {
+      observer.observe(container);
+    });
+
+    return () => {
+      imageContainers.forEach((container) => {
+        observer.unobserve(container);
+      });
+    };
+  }, []);
+
+
+
+
+
 const slides = [
   {url:"/183.jpg", title: "Spa"},
   {url:"/96.jpg", title: "Spa"},
@@ -24,11 +59,11 @@ const slideStyles = {
 };
 
   return (
-    <div>
+    <div >
       <div className='spa-top'>
         <img src="../public/bg-spa-intro-2020.jpg" alt="" />
 
-        <div className='spa-top-words'>
+        <div className='spa-top-words' data-aos="zoom-in-up">
           <h3>UNWIND AND INDULGE IN OUR </h3>
           <h1>SERENITY SPA</h1>
         </div>
@@ -47,13 +82,18 @@ const slideStyles = {
       <div id='spa-packages'>
         <div id='spa-packages-1'>
           <h2>Spa Packages for the body, mind and soul</h2>
-          <img src="../public/bg-spa-bed-2020.jpg" alt="" />
+          <div className='image-container'>
+            <img src="../public/bg-spa-bed-2020.jpg" alt="" />
+          </div>
+          
         </div>
       
 
       
         <div id='spa-packages-2'>
-        <img src="../public/pexels-photo-3101547.jpeg" alt="" />
+        <div className='image-container'>
+            <img src="../public/pexels-photo-3101547.jpeg" alt="" />
+          </div>
           <p>All our Facial and Body treatments begin with a hot towel foot cleanse and “Initial Touch Ritual” and we encourage you to spend half an hour in our relaxation areas post treatment with herbal tea and a fresh fruit platter.</p>
           
         </div>
@@ -61,7 +101,9 @@ const slideStyles = {
 
       <div className='swimming'>
         <div>
-          <img src="../public/spa4.jpg" alt="" />
+        <div className='image-container'>
+            <img src="../public/spa4.jpg" alt="" />
+          </div>
           <h2>Take a Refreshing Dip at our Swimming School</h2>
         </div>
       </div>
