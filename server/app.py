@@ -384,4 +384,7 @@ def create_tag():
 
 
 if __name__ == '__main__':
-    app.run(port=8040 , debug="true")
+    import os
+    port = int(os.environ.get("PORT", 8040))  # Keep your default port as 8040
+    app.run(host="0.0.0.0", port=port)
+
