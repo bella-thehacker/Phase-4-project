@@ -22,7 +22,7 @@ const RegisterForm = ({ setShowLogin, setUserCredentials }) => {
       }}
       validationSchema={RegisterSchema}
       onSubmit={(values, { setSubmitting }) => {
-        fetch('http://127.0.0.1:8040/register', {
+        fetch('https://phase-4-project-ybtk.onrender.com//register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
