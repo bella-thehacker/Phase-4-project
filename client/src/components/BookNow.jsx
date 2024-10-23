@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import BookingSuccessful from './BookingSuccessful'; // Import the new pop-up component
 
 const BookNow = () => {
     const [rooms, setRooms] = useState([]);
     const [error, setError] = useState('');
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [totalCost, setTotalCost] = useState(0);
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false); // State for the success pop-up
 
     // Fetch rooms when the component mounts
     useEffect(() => {
@@ -62,8 +64,8 @@ const BookNow = () => {
             }
 
             const data = await response.json();
-            alert('Booking successful!');
             console.log(data);
+            setShowSuccessPopup(true); // Show the success pop-up on successful booking
         } catch (err) {
             console.error(err);
             setError(err.message);
@@ -174,6 +176,9 @@ const BookNow = () => {
                     </Form>
                 )}
             </Formik>
+
+            {/* Render the booking success popup if the booking was successful */}
+            {showSuccessPopup && <BookingSuccessful onClose={() => setShowSuccessPopup(false)} />}
         </div>
     );
 };
