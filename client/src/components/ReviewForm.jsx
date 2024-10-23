@@ -12,7 +12,7 @@ const ReviewForm = ({ onSuccess }) => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8040/hotels');
+        const response = await fetch('https://phase-4-project-ybtk.onrender.com//hotels');
         if (response.ok) {
           const data = await response.json();
           setHotels(data);
@@ -65,7 +65,7 @@ const ReviewForm = ({ onSuccess }) => {
           return;
         }
 
-        const response = await fetch('http://127.0.0.1:8040/reviews', {
+        const response = await fetch('https://phase-4-project-ybtk.onrender.com//reviews', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
