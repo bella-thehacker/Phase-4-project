@@ -384,4 +384,4 @@ def create_tag():
 
 
 if __name__ == '__main__':
-    app.run(port=8040, debug=True)
+    app.run(port=8040)
