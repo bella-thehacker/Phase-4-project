@@ -7,18 +7,96 @@
   height: auto;
   width: 100%;
   background-color: #3f3f46;
-  padding: 50px;
+  padding-top: 30px;
   margin-bottom: 0px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: 300px;
 }
 
+.footer-top {
+  width: 90%;
+  height: 150px;
+  border-bottom: 0.1rem solid;
+}
 .follow-us {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+  padding-left: 15px;
   width: 20%;
+  height: 60px;
+  margin-top: 0px;
+}
+
+.icons-follow-us:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+}
+
+.footer-middle {
+  width: 90%;
+  height: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 50px;
+}
+
+.footer-middle p {
+  font-size: 1.3rem;
+}
+
+.footer-imgs {
+  width: 50%;
   height: 100px;
-  
+}
+
+.footer-imgs img {
+  animation: scale-down 0.5s forwards;
+}
+
+.footer-imgs img:hover {
+  animation: scale-up 0.8s forwards;
+}
+
+@keyframes scale-up {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-down {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.9);
+  }
+}
+
+.footer-btm {
+  display: flex;
+  width: 90%;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 20px;
+  border-top: 0.1rem solid ;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.footer-btm img{
+    height: 150px;
+    width: 140px;
 }
