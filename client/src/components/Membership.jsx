@@ -5,9 +5,11 @@ import '../css/membership.css';
 
 const Membership = () => {
   const [showLogin, setShowLogin] = useState(true);
+  const [userCredentials, setUserCredentials] = useState({ username: '', password: '' });
 
   return (
     <div className="membership-container">
+      <div className='container-auth'>
       
       <div className="auth-toggle">
         <button onClick={() => setShowLogin(true)} className={showLogin ? 'active' : ''}>
@@ -19,8 +21,13 @@ const Membership = () => {
       </div>
 
       <div className={`form-container ${showLogin ? 'show-login' : 'show-register'}`}>
-        {showLogin ? <LoginForm /> : <RegisterForm />}
+        {showLogin ? (
+          <LoginForm userCredentials={userCredentials} />
+        ) : (
+          <RegisterForm setShowLogin={setShowLogin} setUserCredentials={setUserCredentials} />
+        )}
       </div>
+    </div>
     </div>
   );
 };
