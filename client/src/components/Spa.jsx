@@ -102,7 +102,7 @@ const slideStyles = {
       <div className='swimming'>
         <div>
         <div className='image-container'>
-            <img src="../public/spa4.jpg" alt="" />
+            <img src="/spa4.jpg" alt="" />
           </div>
           <h2>Take a Refreshing Dip at our Swimming School</h2>
         </div>
