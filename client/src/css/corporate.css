@@ -1,41 +1,171 @@
 .corporate-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 100%;
+  margin: 0;
+  padding: 0px;
   font-family: Arial, sans-serif;
 }
 
-.corporate-header {
+.corporate-container .text {
+  max-width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  padding-left: 30%;
+  padding-right: 30%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 550;
   text-align: center;
-  margin-bottom: 40px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
-.corporate-description, .corporate-facilities, .conference-packages, .contact-info {
-  margin-bottom: 40px;
+.type-writer-text {
+  color: white;
+  font-size: 6rem;
+  font-family: fantasy;
+  font-weight: 600;
+  margin-bottom: 250px;
+}
+
+.type-writer-text2 {
+  color: white;
+  font-size: 4rem;
+  font-family: fantasy;
+  font-weight: 600;
+  margin-bottom: 250px;
+}
+
+header {
+  height: 90vh;
+  width: 100%;
+  margin: 0px;
+  object-fit: cover;
+  background-image: url(/corporate1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.corporate-header {
+  background-color: rgba(0, 0, 0, 0.274);
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image-corporate .corporate-inn {
+  background-color: rgba(0, 0, 0, 0.274);
+  height: 740px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0px;
+}
+
+.corporate-inn P {
+  color: white;
+  font-size: 2.5rem;
+  font-family: fantasy;
+  font-weight: 500;
+}
+.corporate-descriptions {
+  max-width: 100%;
+  height: auto;
+  font-size: 1.5rem;
+  padding-left: 22%;
+  padding-right: 22%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.corporate-description {
+  max-width: 100%;
+  height: auto;
+  font-size: 1.5rem;
+  padding-left: 22%;
+  padding-right: 22%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.corporate-description p {
+  width: 510px;
+}
+
+.image-corporate {
+  background-image: url(/imgcorporate.png);
+  height: 900px;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
 }
 
 .rooms {
+  width: 60%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
 .room {
   border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 300px;
+  height: 250px;
+  background-image: url(https://www.hemingways-collection.com/wp-content/uploads/2020/08/HN-2020-89.1.jpg?format=auto&width=400&height=400);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.room-inn {
+  background-color: rgba(0, 0, 0, 0.473);
+  width: 100%;
+  height: 100%;
   padding: 15px;
-  border-radius: 8px;
-  width: calc(20% - 20px);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.4rem;
+  border-radius: 10px;
+}
+
+.conference-packages {
+  height: 92vh;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .package {
-  margin-bottom: 20px;
+  height: 100%;
+  width: 30%;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+  border:0.1rem solid black;
+  padding: 15px;
+  box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.418);
+  border-radius: 5px;
 }
 
-.package h3, .package h4 {
-  margin: 10px 0;
-}
 
 .contact-info {
   text-align: center;
+  width: 50%;
+  margin-top: 50px;
 }

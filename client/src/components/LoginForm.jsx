@@ -35,7 +35,7 @@ const LoginForm = () => {
         setTimeout(() => {
           setShowLoading(false);
           setShowSuccessPopup(true);
-        }, 1000); // Delay for 6 seconds
+        }, 250); // Delay for 0.25 seconds
       })
       .catch((error) => {
         setErrors({ username: 'Login failed. Please try again.' });
