@@ -22,7 +22,7 @@ const RegisterForm = ({ setShowLogin, setUserCredentials }) => {
       }}
       validationSchema={RegisterSchema}
       onSubmit={(values, { setSubmitting }) => {
-        fetch('https://phase-4-project-ybtk.onrender.com//register', {
+        fetch('https://phase-4-project-ybtk.onrender.com/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
