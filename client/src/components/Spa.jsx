@@ -61,7 +61,7 @@ const slideStyles = {
   return (
     <div >
       <div className='spa-top'>
-        <img src="../public/bg-spa-intro-2020.jpg" alt="" />
+        <img src="/bg-spa-intro-2020.jpg" alt="" />
 
         <div className='spa-top-words' data-aos="zoom-in-up">
           <h3>UNWIND AND INDULGE IN OUR </h3>
@@ -83,7 +83,7 @@ const slideStyles = {
         <div id='spa-packages-1'>
           <h2>Spa Packages for the body, mind and soul</h2>
           <div className='image-container'>
-            <img src="../public/bg-spa-bed-2020.jpg" alt="" />
+            <img src="/bg-spa-bed-2020.jpg" alt="" />
           </div>
           
         </div>
@@ -92,7 +92,7 @@ const slideStyles = {
       
         <div id='spa-packages-2'>
         <div className='image-container'>
-            <img src="../public/pexels-photo-3101547.jpeg" alt="" />
+            <img src="/pexels-photo-3101547.jpeg" alt="" />
           </div>
           <p>All our Facial and Body treatments begin with a hot towel foot cleanse and “Initial Touch Ritual” and we encourage you to spend half an hour in our relaxation areas post treatment with herbal tea and a fresh fruit platter.</p>
           
