@@ -62,7 +62,7 @@ function Spa() {
         </div>
       </div>
 
-      <div className='mb-[100px] bg-[#f7f7f7] w-full h-[40vh] flex flex-col items-center'>
+      <div className='mb-[100px] bg-[#f7f7f7] w-full h-auto object-contain flex flex-col items-center'>
         <h2 className='font-bold mt-[30px] text-center text-[2rem] w-[40%]'>
           Immerse yourself in the tranquil world at Vista Spa, rediscover your
           senses and emerge relaxed, recharged and glowing.
