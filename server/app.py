@@ -12,6 +12,7 @@ app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 db.init_app(app)
 CORS(app, resources={r"/*": {"origins": "https://phase-4-project-tawny.vercel.app"}})
+
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
 blocklist = set()

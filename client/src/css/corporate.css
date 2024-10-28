@@ -1,3 +1,4 @@
+/* General container styles */
 .corporate-container {
   max-width: 100%;
   margin: 0;
@@ -17,6 +18,7 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 550;
   text-align: center;
+
   margin-top: 50px;
   margin-bottom: 20px;
 }
@@ -105,17 +107,35 @@ header {
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
+
+}
+
+.corporate-description {
+  margin: 80px 0;
+}
+
+.corporate-facilities {
+  margin: 5px ;
+  padding: 20px; 
+   border-radius: 8px;  
+
 }
 
 .rooms {
   width: 60%;
   display: flex;
   flex-wrap: wrap;
+
   justify-content: center;
   gap: 20px;
+
+  justify-content: space-between;
+
 }
 
+/* Styling individual room containers */
 .room {
+
   border: 1px solid #ccc;
   border-radius: 10px;
   width: 300px;
@@ -168,4 +188,63 @@ header {
   text-align: center;
   width: 50%;
   margin-top: 50px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border: 1px solid #ddd;    /* Subtle border */
+  border-radius: 8px;        /* Rounded corners */
+  margin: 20px;              /* Increased margin */
+  padding: 20px;
+  width: calc(20% - 40px);   /* Adjust width for responsive design */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  text-align: center;        /* Centering text */
+  transition: transform 0.2s; /* Smooth scaling on hover */
 }
+
+.room:hover {
+  transform: scale(1.05);    /* Scale effect on hover */
+}
+
+/* Styling images */
+.room-image {
+  width: 100%;               /* Full width for responsiveness */
+  height: auto;              /* Maintain aspect ratio */
+  border-radius: 8px;        /* Rounded corners for images */
+  max-height: 400px;         /* Increased max height for larger images */
+}
+
+/* Button styles */
+button {
+  background-color: #8B4513; /* Brown color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;        /* Increased padding for larger buttons */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #6F4C3E; /* Darker brown on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .room {
+    width: calc(50% - 40px); /* Two columns on smaller screens */
+  }
+
+  .room-image {
+    max-height: 250px; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .room {
+    width: 100%; /* Full width on very small screens */
+  }
+
+  .room-image {
+    max-height: 200px; /* Further adjust height for very small screens */
+  }
+
+}
+
