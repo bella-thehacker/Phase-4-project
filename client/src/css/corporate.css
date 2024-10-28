@@ -142,13 +142,14 @@ header {
 }
 
 .conference-packages {
-  height: 92vh;
+  height: auto;
   width: 100%;
   background-color: rgb(240, 240, 240);
   text-align: left;
   display: flex;
   flex-direction: column;
   align-items: center;
+  object: contain;
 }
 
 .package {
