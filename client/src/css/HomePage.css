@@ -188,6 +188,7 @@ video {
   height: 55%;
   display: inline-block;
   overflow: hidden;
+  padding-bottom: 50px;
 }
 
 .stay_homepage .stay_imgs img {
