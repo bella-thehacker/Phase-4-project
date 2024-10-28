@@ -38,7 +38,7 @@ function Stay() {
   return (
     <div>
       <div className='stay-top' data-aos="fade-up">
-        <img src='../public/vistaa2.png' alt='vista logo' />
+        <img src='/vistaa2.png' alt='vista logo' />
         <div className='stay-top-inn'>
          
           <h1>

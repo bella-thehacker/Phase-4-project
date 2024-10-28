@@ -1,3 +1,4 @@
+
 import '../css/corporate.css' // Make sure to create this CSS file
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
@@ -35,6 +36,7 @@ function Corporate() {
           seclusion
         </p>
 
+
       </section>
 
       <section className="corporate-facilities">
@@ -44,6 +46,7 @@ function Corporate() {
           alt="Corporate Environment"
           className="description-image"
         />
+
 
         <p>
           of our conference suite is an inspiring arena for business networking

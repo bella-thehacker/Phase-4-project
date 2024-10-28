@@ -107,7 +107,7 @@ header {
   background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
-=======
+
 }
 
 .corporate-description {
@@ -118,6 +118,7 @@ header {
   margin: 5px ;
   padding: 20px; 
    border-radius: 8px;  
+
 }
 
 .rooms {
@@ -187,7 +188,6 @@ header {
   text-align: center;
   width: 50%;
   margin-top: 50px;
-
   background-color: #f9f9f9; /* Light background for contrast */
   border: 1px solid #ddd;    /* Subtle border */
   border-radius: 8px;        /* Rounded corners */
@@ -247,3 +247,4 @@ button:hover {
   }
 
 }
+

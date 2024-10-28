@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   const handleLogin = (values, { setSubmitting, setErrors }) => {
     
-    fetch('http://127.0.0.1:8040/login', {
+    fetch('https://phase-4-project-ybtk.onrender.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const LoginForm = () => {
         setTimeout(() => {
           setShowLoading(false);
           setShowSuccessPopup(true);
-        }, 1000); // Delay for 6 seconds
+        }, 250); // Delay for 0.25 seconds
       })
       .catch((error) => {
         setErrors({ username: 'Login failed. Please try again.' });

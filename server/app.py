@@ -11,7 +11,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
 db.init_app(app)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://phase-4-project-tawny.vercel.app"}})
+
 migrate = Migrate(app, db)
 jwt = JWTManager(app)
 blocklist = set()
@@ -384,4 +385,7 @@ def create_tag():
 
 
 if __name__ == '__main__':
-    app.run(port=8040, debug=True)
+    import os
+    port = int(os.environ.get("PORT", 8040))  # Keep your default port as 8040
+    app.run(host="0.0.0.0", port=port)
+

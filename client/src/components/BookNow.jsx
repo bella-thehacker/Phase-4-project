@@ -13,7 +13,7 @@ const BookNow = () => {
     useEffect(() => {
         const fetchRooms = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8040/rooms', {
+                const response = await fetch('https://phase-4-project-ybtk.onrender.com/rooms', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -48,7 +48,7 @@ const BookNow = () => {
 
             console.log('Booking data:', bookingData); // Log the payload
 
-            const response = await fetch('http://127.0.0.1:8040/bookings', {
+            const response = await fetch('https://phase-4-project-ybtk.onrender.com/bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
