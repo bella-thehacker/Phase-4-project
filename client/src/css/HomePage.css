@@ -191,8 +191,8 @@ video {
 }
 
 .stay_homepage .stay_imgs img {
-  width: 400px;
-  height: 300px;
+  width: 20%;
+  height: auto;
   animation: scale-down 0.5s forwards;
   border: 0.2rem solid black;
   box-shadow: 10px 10px 10px #3f3f46;
