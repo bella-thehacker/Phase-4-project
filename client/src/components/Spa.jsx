@@ -52,7 +52,7 @@ function Spa() {
   }
 
   return (
-    <div>
+   <div>
       <div className='spa-top'>
         <img src='../public/bg-spa-intro-2020.jpg' alt='' />
 
