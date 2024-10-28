@@ -54,7 +54,7 @@ function Spa() {
   return (
    <div>
       <div className='spa-top'>
-        <img src='../public/bg-spa-intro-2020.jpg' alt='' />
+        <img src='/bg-spa-intro-2020.jpg' alt='' />
 
         <div className='spa-top-words' data-aos='zoom-in-up'>
           <h3>UNWIND AND INDULGE IN OUR </h3>
@@ -95,7 +95,7 @@ function Spa() {
           <div className='object-contain flex justify-center w-[40%] h-auto '>
             <img
               className='mt-[40px] w-[50%] rounded-[10px]'
-              src='/public/bg-spa-bed-2020.jpg'
+              src='/bg-spa-bed-2020.jpg'
               alt=''
             />
           </div>
@@ -106,7 +106,7 @@ function Spa() {
           <div className=''>
             <img
               className='h-full rounded-[10px] w-auto m-[10px]'
-              src='../public/pexels-photo-3101547.jpeg'
+              src='/pexels-photo-3101547.jpeg'
               alt=''
             />
           </div>
@@ -125,7 +125,7 @@ function Spa() {
           <div className=''>
             <img
               className='h-full rounded-[10px] w-auto m-[10px]'
-              src='../public/spa4.jpg'
+              src='/spa4.jpg'
               alt=''
             />
           </div>
