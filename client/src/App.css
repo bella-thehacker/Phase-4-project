@@ -29,9 +29,9 @@
   font-style: normal;
 }
 
-.stay-top img{
-  width: 15rem;
-  height: 20rem;
+.spa-top img{
+  width: 100%;
+  height: 100vh;
 }
 
 .stay-top h1{
