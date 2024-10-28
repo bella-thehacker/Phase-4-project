@@ -152,8 +152,8 @@ header {
 }
 
 .package {
-  height: 100%;
-  width: 30%;
+  height: auto;
+  width: 45%;
   font-size: 1.5rem;
   font-weight: 600;
   font-family: 'Times New Roman', Times, serif;
