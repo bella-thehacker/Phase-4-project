@@ -29,8 +29,8 @@ video {
 }
 
 .video-content-top img {
-  height: 80%;
-  width: 100px;
+  height: 100%;
+  width: 120px;
   border-radius: 5px;
 }
 
